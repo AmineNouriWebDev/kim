@@ -43,10 +43,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white dark:bg-kim-darker text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
 
     <!-- Loader (Giant Logo) -->
-    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-kim-darker transition-opacity duration-700">
+    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
         <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
             <!-- Grayscale Logo (Background) -->
             <img src="media/logo.png" alt="KIM Motors Loading" class="w-full h-auto opacity-10 grayscale">
@@ -61,7 +61,7 @@
     <!-- Navbar 2026 -->
     <header class="absolute w-full z-50 top-0 transition-all duration-300" id="navbar">
         <!-- Frosted Glass Background -->
-        <div class="absolute inset-0 bg-white/70 dark:bg-kim-darker/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300"></div>
+        <div class="absolute inset-0 bg-kim-darker/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300"></div>
         
         <div class="container mx-auto px-4 lg:px-8 relative">
             <div class="flex items-center justify-between h-20">
@@ -72,18 +72,18 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-10">
-                    <a href="index.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors active">Accueil</a>
+                    <a href="index.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors active">Accueil</a>
                     
                     <!-- Mega Menu Trigger -->
                     <div class="h-20 flex items-center" id="nav-modeles">
-                        <a href="#" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors flex items-center gap-2">
+                        <a href="#" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors flex items-center gap-2">
                             Modèles <i class="fa-solid fa-chevron-down text-xs"></i>
                         </a>
                     </div>
 
-                    <a href="a-propos.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">À Propos</a>
-                    <a href="atelier.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">L'Atelier</a>
-                    <a href="contact.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">Contact</a>
+                    <a href="a-propos.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">À Propos</a>
+                    <a href="atelier.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">L'Atelier</a>
+                    <a href="contact.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">Contact</a>
                 </nav>
 
                 <!-- Right Actions -->
@@ -95,14 +95,14 @@
                     </a>
 
                     <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="relative group p-2 text-gray-600 dark:text-gray-400 hover:text-kim-red dark:hover:text-kim-red transition-colors">
-                        <i class="fa-solid fa-moon dark:hidden text-xl"></i>
-                        <i class="fa-solid fa-sun hidden dark:block text-xl"></i>
+                    <button id="theme-toggle" class="relative group p-2 text-gray-400 hover:text-kim-red dark:hover:text-kim-red transition-colors">
+                        <i class="fa-solid fa-moon hidden text-xl"></i>
+                        <i class="fa-solid fa-sun block text-xl"></i>
                         <div class="absolute inset-0 bg-kim-red/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                     </button>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-800 dark:text-gray-200">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-200">
                         <i class="fa-solid fa-bars-staggered text-2xl"></i>
                     </button>
                 </div>
@@ -110,7 +110,7 @@
         </div>
 
         <!-- Mega Menu Dropdown -->
-        <div id="mega-menu" class="absolute top-20 left-0 w-full bg-white/95 dark:bg-kim-darker/95 backdrop-blur-2xl border-b border-gray-200 dark:border-gray-800 shadow-2xl">
+        <div id="mega-menu" class="absolute top-20 left-0 w-full bg-kim-darker/95 backdrop-blur-2xl border-b border-gray-800 shadow-2xl">
             <div class="container mx-auto px-4 py-10">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     <!-- Model Items -->
@@ -177,9 +177,9 @@
     </header>
 
             <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-kim-darker/95 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 md:hidden flex flex-col overflow-y-auto pb-10">
-        <a href="index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6 text-kim-red">ACCUEIL</a>
-        <div class="py-6 border-b border-gray-200 dark:border-gray-800">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-kim-darker/95 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 md:hidden flex flex-col overflow-y-auto pb-10">
+        <a href="index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red">ACCUEIL</a>
+        <div class="py-6 border-b border-gray-800">
             <span class="text-4xl font-sport font-bold tracking-widest text-gray-500 mb-4 block">MODÈLES</span>
             <div class="grid grid-cols-2 gap-4 pl-4">
                 <a href="modeles/pista-hr.html" class="font-bold text-lg">PISTA HR</a>
@@ -191,10 +191,10 @@
                 <a href="modeles/blaster.html" class="font-bold text-lg text-kim-red">BLASTER</a>
             </div>
         </div>
-        <a href="a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6">À PROPOS</a>
-        <a href="atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6">L'ATELIER</a>
+        <a href="a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6">À PROPOS</a>
+        <a href="atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6">L'ATELIER</a>
         <a href="contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6">CONTACT</a>
-        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-gray-800 dark:text-gray-200">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-gray-200">
             <i class="fa-solid fa-xmark text-4xl"></i>
         </button>
     </div>
@@ -218,7 +218,7 @@
         </section>
 
         <!-- Modèles Preview Section -->
-        <section id="modeles" class="py-32 bg-white dark:bg-kim-darker relative z-10">
+        <section id="modeles" class="py-32 bg-kim-darker relative z-10">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-20">
                     <div>
@@ -232,7 +232,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Cards with 2026 magnetic glass style -->
-                    <a href="modeles/pista-hr.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                    <a href="modeles/pista-hr.html" class="group relative bg-kim-dark rounded-2xl overflow-hidden block">
                         <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <img src="media/pista-hr/kim1_hr-affiche-2.1.jpg" alt="Pista HR" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">
@@ -245,7 +245,7 @@
                         </div>
                     </a>
 
-                    <a href="modeles/ghost-v7.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                    <a href="modeles/ghost-v7.html" class="group relative bg-kim-dark rounded-2xl overflow-hidden block">
                         <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <img src="media/ghost-v7/kim2_AFF.jpg" alt="Ghost V7" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">
@@ -258,7 +258,7 @@
                         </div>
                     </a>
 
-                    <a href="modeles/blaster.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                    <a href="modeles/blaster.html" class="group relative bg-kim-dark rounded-2xl overflow-hidden block">
                         <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <img src="media/blaster/kim3_affiche-blaster-copie.jpg" alt="Blaster" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">

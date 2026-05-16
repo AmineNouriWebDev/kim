@@ -11,21 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 1. Dark/Light Mode Management ---
-    const themeToggleBtn = document.getElementById('theme-toggle');
+    // Enforce dark mode permanently as requested
     const htmlElement = document.documentElement;
-    
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        htmlElement.classList.add('dark');
-    } else {
-        htmlElement.classList.remove('dark');
-    }
-
-    if(themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            localStorage.setItem('color-theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
-        });
-    }
+    htmlElement.classList.add('dark');
+    localStorage.setItem('color-theme', 'dark');
 
     // --- 2. Navbar Scroll Effect & Blur ---
     const navbar = document.getElementById('navbar');

@@ -40,7 +40,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 dark:bg-kim-darker text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
     <!-- Loader (Giant Logo) -->
     <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
         <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
@@ -174,49 +174,137 @@
     <!-- Navbar -->
 
 
-<main class="min-h-screen pt-32 pb-24 relative overflow-hidden">
+<main class="min-h-screen pt-32 pb-24 relative overflow-hidden bg-black">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="text-center mb-16">
                 <h1 class="text-6xl md:text-8xl font-sport font-bold mb-4 tracking-wide">DEMANDER UN DEVIS</h1>
                 <p class="text-gray-500 text-lg max-w-2xl mx-auto">Configurez votre projet et recevez une offre personnalisée sous 24h.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-white dark:bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
+            <div class="max-w-4xl mx-auto bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
                 <form action="#" method="POST" class="space-y-8">
                     <!-- Sélection du modèle -->
                     <div class="space-y-4">
                         <h3 class="text-2xl font-sport font-bold text-kim-red">1. Choisissez votre Modèle</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <label class="relative group cursor-pointer">
-                                <input type="radio" name="model" value="pista-hr" class="peer sr-only" checked>
-                                <div class="p-4 border-2 border-gray-100 dark:border-gray-800 rounded-xl group-hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/5 transition-all">
-                                    <span class="block font-bold text-center">PISTA HR</span>
+                            <!-- PISTA HR -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-pista-hr" name="model[]" value="pista-hr" class="peer sr-only">
+                                <label for="chk-pista-hr" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">PISTA HR</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_pista-hr" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
                                 </div>
-                            </label>
-                            <label class="relative group cursor-pointer">
-                                <input type="radio" name="model" value="ghost-v7" class="peer sr-only">
-                                <div class="p-4 border-2 border-gray-100 dark:border-gray-800 rounded-xl group-hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/5 transition-all">
-                                    <span class="block font-bold text-center">GHOST V7</span>
+                            </div>
+                            
+                            <!-- PISTA HR+ -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-pista-hr-plus" name="model[]" value="pista-hr-plus" class="peer sr-only">
+                                <label for="chk-pista-hr-plus" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">PISTA HR+</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_pista-hr-plus" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
                                 </div>
-                            </label>
-                            <label class="relative group cursor-pointer">
-                                <input type="radio" name="model" value="blaster" class="peer sr-only">
-                                <div class="p-4 border-2 border-gray-100 dark:border-gray-800 rounded-xl group-hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/5 transition-all">
-                                    <span class="block font-bold text-center">BLASTER</span>
+                            </div>
+                            
+                            <!-- PISTA VCX -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-pista-vcx" name="model[]" value="pista-vcx" class="peer sr-only">
+                                <label for="chk-pista-vcx" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">PISTA VCX</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_pista-vcx" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
                                 </div>
-                            </label>
-                            <!-- Autres modèles peuvent être ajoutés ici -->
+                            </div>
+                            
+                            <!-- GHOST V7 -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-ghost-v7" name="model[]" value="ghost-v7" class="peer sr-only">
+                                <label for="chk-ghost-v7" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">GHOST V7</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_ghost-v7" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
+                            
+                            <!-- BLACK STREET -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-black-street" name="model[]" value="black-street" class="peer sr-only">
+                                <label for="chk-black-street" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">BLACK STREET</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_black-street" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
+                            
+                            <!-- SPRING ST -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-spring-st" name="model[]" value="spring-st" class="peer sr-only">
+                                <label for="chk-spring-st" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">SPRING ST</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_spring-st" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
+                            
+                            <!-- BLASTER -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-blaster" name="model[]" value="blaster" class="peer sr-only">
+                                <label for="chk-blaster" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">BLASTER</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_blaster" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
+                            
+                            <!-- POWER 110 -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-power-110" name="model[]" value="power-110" class="peer sr-only">
+                                <label for="chk-power-110" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">POWER 110</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_power-110" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
+                            
+                            <!-- POWER 125 -->
+                            <div class="relative h-full">
+                                <input type="checkbox" id="chk-power-125" name="model[]" value="power-125" class="peer sr-only">
+                                <label for="chk-power-125" class="block p-4 pb-14 border-2 border-gray-800 rounded-xl hover:border-kim-red peer-checked:border-kim-red peer-checked:bg-kim-red/10 transition-all h-full cursor-pointer flex items-center justify-center">
+                                    <span class="font-bold text-center text-sm md:text-base">POWER 125</span>
+                                </label>
+                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity">
+                                    <span class="text-xs text-gray-400 uppercase tracking-widest">Qté</span>
+                                    <input type="number" name="qty_power-125" min="1" value="1" class="w-14 bg-black border border-gray-700 rounded text-center text-white py-1 px-1 text-sm focus:outline-none focus:border-kim-red">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Coordonnées -->
-                    <div class="space-y-4 pt-8 border-t border-gray-100 dark:border-gray-800">
+                    <div class="space-y-4 pt-8 border-t border-gray-800">
                         <h3 class="text-2xl font-sport font-bold text-kim-red">2. Vos Coordonnées</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <input type="text" placeholder="Prénom" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="text" placeholder="Nom" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="email" placeholder="Email" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="tel" placeholder="Téléphone" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="text" placeholder="Prénom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="text" placeholder="Nom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="email" placeholder="Email" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="tel" placeholder="Téléphone" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
                         </div>
                     </div>
 

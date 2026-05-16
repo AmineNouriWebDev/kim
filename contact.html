@@ -40,7 +40,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 dark:bg-kim-darker text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
     <!-- Loader (Giant Logo) -->
     <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
         <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
@@ -187,26 +187,26 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Formulaire -->
-                <div class="bg-white dark:bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
+                <div class="bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
                     <!-- Pointing to a dummy n8n webhook URL for now -->
                     <form action="https://your-n8n-webhook-url.com/webhook/contact" method="POST" class="space-y-6">
                         <div class="grid grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Prénom</label>
-                                <input type="text" name="firstname" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
+                                <input type="text" name="firstname" required class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Nom</label>
-                                <input type="text" name="lastname" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
+                                <input type="text" name="lastname" required class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
                             </div>
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Email</label>
-                            <input type="email" name="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
+                            <input type="email" name="email" required class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Sujet</label>
-                            <select name="subject" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
+                            <select name="subject" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors">
                                 <option value="information">Demande d'information</option>
                                 <option value="sav">Service Après Vente</option>
                                 <option value="partenariat">Partenariat</option>
@@ -215,7 +215,7 @@
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Message</label>
-                            <textarea name="message" rows="5" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors resize-none"></textarea>
+                            <textarea name="message" rows="5" required class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red transition-colors resize-none"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-kim-red text-white font-bold uppercase tracking-widest py-4 rounded-lg hover:bg-red-800 transition-colors">
                             Envoyer le message
@@ -226,12 +226,12 @@
                 <!-- Info & Map -->
                 <div class="space-y-10">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-white dark:bg-kim-dark p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
+                        <div class="bg-kim-dark p-8 rounded-3xl shadow-xl border border-gray-800">
                             <i class="fa-solid fa-phone text-3xl text-kim-red mb-4"></i>
                             <h3 class="font-bold text-xl mb-2">Téléphone</h3>
                             <p class="text-gray-500">+216 22 004 151 / +216 26 717 992</p>
                         </div>
-                        <div class="bg-white dark:bg-kim-dark p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
+                        <div class="bg-kim-dark p-8 rounded-3xl shadow-xl border border-gray-800">
                             <i class="fa-solid fa-envelope text-3xl text-kim-red mb-4"></i>
                             <h3 class="font-bold text-xl mb-2">Email</h3>
                             <p class="text-gray-500">s.commercial.ktg@gmail.com</p>
