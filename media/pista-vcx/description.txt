@@ -1,0 +1,31 @@
+ Marque PISTA- Dimensions (mm) 1695 * 665 * 1075 - Empattement (mm) 1180-  Garde au sol (mm) 90 -  Poids net (Kg) 90 -  Moteur Monocylindre, 4 temps, Refroidissement par air -  Type de Moteur : LH150QMH -  Cylindrée (Cm3 ) 106 CC -  Puissance maximale (kw / rpm) 5.3 Kw / 8000 r/min  - Couple maximum (Kw / rpm) 6.8 Nw / 6000 rpm - Alésage * Course 50 * 54  -  Taux de compression 9.5:1  - Embrayage À sec - Boite à vitesse Automatique CVT -  Mode de démarrage Électrique / Cliquet -  Allumage CDI  - Roues (Avant / Arrière) (90/90-10) / (90/90-10) -  Capacité de carburant 5 Litres  - Système d’alimentation Carburateur -  Fonctionnement des Freins (Av / Ar) Main / Main  - Mode de freinage (Av / Ar) Disque / Tambour  - Suspension avant Fourche télescopique hydraulique -  Suspension arrière Mono amortisseur hydraulique réglables, avec ressorts
+ Marque PISTA- Dimensions (mm) 1695 * 665 * 1075 - Empattement (mm) 1180-  Garde au sol (mm) 90 -  Poids net (Kg) 90 -  Moteur Monocylindre, 4 temps, Refroidissement par air -  Type de Moteur : LH150QMH -  Cylindrée (Cm3 ) 106 CC -  Puissance maximale (kw / rpm) 5.3 Kw / 8000 r/min  - Couple maximum (Kw / rpm) 6.8 Nw / 6000 rpm - Alésage * Course 50 * 54  -  Taux de compression 9.5:1  - Embrayage À sec - Boite à vitesse Automatique CVT -  Mode de démarrage Électrique / Cliquet -  Allumage CDI  - Roues (Avant / Arrière) (90/90-10) / (90/90-10) -  Capacité de carburant 5 Litres  - Système d’alimentation Carburateur -  Fonctionnement des Freins (Av / Ar) Main / Main  - Mode de freinage (Av / Ar) Disque / Tambour  - Suspension avant Fourche télescopique hydraulique -  Suspension arrière Mono amortisseur hydraulique réglables, avec ressorts
+ Informations Générales et Moteur
+Marque : PISTA
+Type moteur : 1P49QMQ
+Moteur : Monocylindre, 4 Temps, Refroidissement à Air
+Cylindrée(Cm 3) : 102 CC
+Système d'alimentation : Carburateur
+Boite à vitesse : Automatique CVT
+Allumage : CDI
+Batterie : 12V 7AH
+Embrayage : A sec
+Mode de démarrage : Electrique
+Performances et Émissions
+Puissance maximale(Kw/rpm) : 5.8Kw / 00 r/min
+Couple Maximum (N.m/r/min) : 7.8 N.m /5500 r/min
+Vitesse maximale (km/h) : 70
+Performance de freinage : < 7m / 30 km/h
+Capacité de montage en cote : 18°
+Emission : CO < 3.8% - HC < 800 PPM
+Partie Cycle et Dimensions
+Suspension avant : Fourche télescopique hydraulique
+Suspension arrière : Bras oscillant
+Mode de freinage (AV/AR) : Disque/Tambour
+Fonctionnement des Frein (AV/AR) : Main / Main
+Roues (AV/AR) : (100/90-10) (100/90-10)
+Capacité de réservoir : 05.1 Litres
+Dimension de scooter (LWH)(mm) : 18007101020mm
+Garde de sol (mm) : 115
+Hauteur de selle (mm) : 740
+Empattement (mm) : 1200

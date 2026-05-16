@@ -1,0 +1,269 @@
+/* ===== KIM MOTORS - PREMIUM DESIGN SYSTEM 2026 ===== */
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+    background: #1f1f1f; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #A11603; 
+}
+::selection {
+    background: #A11603;
+    color: white;
+}
+
+/* --- Image Protection (No right-click / no drag) --- */
+img:not(.no-protect-img) {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+/* Allow clicks on linked images */
+a img:not(.no-protect-img) {
+    pointer-events: auto;
+}
+
+/* --- Smooth Scrolling --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Loader Fill Animation --- */
+.loader-fill {
+    clip-path: inset(100% 0 0 0);
+    animation: fillUp 5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+}
+
+@keyframes fillUp {
+    0% { clip-path: inset(100% 0 0 0); }
+    100% { clip-path: inset(0 0 0 0); }
+}
+
+/* --- Magnetic Button Base --- */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s;
+}
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: #A11603; /* KIM Red */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+}
+.magnetic-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+.magnetic-btn:hover {
+    color: #fff !important;
+    border-color: #A11603 !important;
+    box-shadow: 0 10px 30px -10px rgba(161, 22, 3, 0.6);
+}
+
+/* --- Mega Menu Styling --- */
+#mega-menu {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s;
+    opacity: 0;
+    pointer-events: none;
+}
+#mega-menu.active {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mega-menu-item {
+    position: relative;
+    overflow: hidden;
+}
+.mega-menu-item img {
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s;
+    filter: grayscale(100%) opacity(60%);
+}
+.mega-menu-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) opacity(100%);
+}
+.mega-menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #A11603;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.mega-menu-item:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- Hover Underline for Links --- */
+.hover-underline {
+    position: relative;
+}
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #A11603;
+    transition: width 0.3s ease;
+}
+.hover-underline:hover::after, .hover-underline.active::after {
+    width: 100%;
+}
+
+/* --- Scroll Indicator --- */
+@keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+}
+.animate-scroll-line {
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* --- Map Container --- */
+.map-container {
+    filter: grayscale(100%) contrast(1.2) opacity(0.8);
+    transition: filter 0.5s;
+}
+.map-container:hover {
+    filter: grayscale(0%) contrast(1) opacity(1);
+}
+
+/* --- Navbar Logo Overflow --- */
+.nav-logo-container {
+    position: relative;
+    z-index: 60;
+}
+.nav-logo-img {
+    height: 140px; /* Agrandissement du logo */
+    width: auto;
+    object-fit: contain;
+    transform: translateY(20px); /* Décalage vers le bas ajusté */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+.nav-logo-img:hover {
+    transform: translateY(20px) scale(1.05);
+}
+
+/* --- Carousel Progress Bar --- */
+@keyframes progressAnim {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+.carousel-progress {
+    animation: progressAnim 4s linear infinite;
+}
+#hero-carousel:hover .carousel-progress {
+    animation-play-state: paused;
+}
+
+
+/* --- Hero Carousel --- */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+.hero-slide.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+}
+
+.hero-slide.active .hero-slide-bg img {
+    animation: slowZoom 15s infinite alternate;
+}
+
+/* --- Carousel Indicators --- */
+.carousel-indicator {
+    width: 30px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+.carousel-indicator.active {
+    background: #A11603;
+    width: 50px;
+}
+
+
+/* --- Infinite Marquee / Ticker Strip --- */
+.features-strip {
+    overflow: hidden;
+    position: relative;
+}
+.features-strip::before,
+.features-strip::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+.features-strip::before { left: 0; background: linear-gradient(to right, #000, transparent); }
+.features-strip::after  { right: 0; background: linear-gradient(to left, #000, transparent); }
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 24s linear infinite;
+}
+.features-strip:hover .marquee-track {
+    animation-play-state: paused;
+}
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 40px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    min-width: 260px;
+    flex-shrink: 0;
+}
+
+@keyframes marqueeScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

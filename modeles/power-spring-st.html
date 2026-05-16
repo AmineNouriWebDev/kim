@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWER SPRING ST - KIM Motors</title>
+    <link rel="icon" type="image/png" href="../media/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { kim: { red: '#A11603', dark: '#050505', darker: '#000000', light: '#ffffff', gray: '#111111', gold: '#D4AF37' } },
+                    fontFamily: { sport: ['Teko', 'sans-serif'], body: ['Inter', 'sans-serif'], }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .spring-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .text-outline-spring {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300 overflow-x-hidden">
+    <!-- Loader (Giant Logo) -->
+    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
+        <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
+            <img src="../media/logo.png" alt="KIM Motors Loading" class="w-full h-auto opacity-10 grayscale">
+            <div class="absolute inset-0 overflow-hidden loader-fill">
+                <img src="../media/logo.png" alt="KIM Motors Loading" class="w-full h-auto max-w-none">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar (Unified) -->
+    <header class="absolute w-full z-50 top-0 transition-all duration-300 group" id="navbar">
+        <div class="absolute inset-0 bg-transparent transition-all duration-300" id="nav-bg"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center shrink-0 z-50 relative transition-transform duration-300 hover:scale-105">
+                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 md:h-20 w-auto object-contain drop-shadow-xl">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2 z-50">
+                    <a href="../index.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">Accueil</a>
+                    <div class="h-24 flex items-center cursor-pointer" id="nav-modeles">
+                        <a class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors flex items-center gap-2 group/menu">
+                            Modèles <i class="fa-solid fa-chevron-down text-[10px] group-hover/menu:rotate-180 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                    <a href="../a-propos.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">À Propos</a>
+                    <a href="../atelier.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">L'Atelier</a>
+                    <a href="../contact.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-6 z-50">
+                    <a href="../devis.html" class="hidden md:flex relative overflow-hidden group/btn px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-kim-red transition-colors">
+                        <div class="absolute inset-0 bg-kim-red transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out z-0"></div>
+                        <span class="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-white">Devis</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-white hover:text-kim-red transition-colors">
+                        <div class="w-8 h-[2px] bg-current mb-2"></div>
+                        <div class="w-6 h-[2px] bg-current mb-2 ml-auto"></div>
+                        <div class="w-8 h-[2px] bg-current"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Menu -->
+        <div id="mega-menu" class="absolute top-full left-0 w-full bg-kim-darker/98 backdrop-blur-3xl border-t border-b border-gray-800 shadow-2xl overflow-hidden">
+            <div class="container mx-auto px-4 py-12">
+                <div class="flex justify-between items-end mb-8 border-b border-gray-800 pb-4">
+                    <h3 class="text-3xl font-sport font-bold text-white tracking-widest">SÉLECTIONNEZ VOTRE <span class="text-kim-red">MODÈLE</span></h3>
+                    <a href="../catalogue.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">Voir tout le catalogue <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+                    <a href="pista-hr.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR</h4>
+                    </a>
+                    <a href="pista-hr-plus.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR+" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 filter hue-rotate-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR+</h4>
+                    </a>
+                    <a href="pista-vcx.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-vcx/kim1_PISTA-1.webp" alt="Pista VCX" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA VCX</h4>
+                    </a>
+                    <a href="ghost-v7.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/ghost-v7/kim2_AFF.webp" alt="Ghost V7" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">GHOST V7</h4>
+                    </a>
+                    <a href="black-street.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/black-street/kim1_DSC06092.webp" alt="Black Street" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLACK STREET</h4>
+                    </a>
+                    <a href="power-spring-st.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/power-spring-st/kim3_affiche-spring.webp" alt="Power Spring ST" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">SPRING ST</h4>
+                    </a>
+                    <a href="blaster.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/blaster/kim3_affiche-blaster-copie.webp" alt="Blaster" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLASTER</h4>
+                    </a>
+                    <div class="group relative aspect-[3/4] overflow-hidden bg-gray-900 flex items-end p-4 opacity-50 cursor-not-allowed">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-gray-500 text-xs font-bold uppercase tracking-widest border border-gray-600 px-3 py-1">Bientôt</span>
+                        </div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-gray-400">POWER</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 lg:hidden flex flex-col overflow-y-auto pb-10">
+        <a href="../index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red">ACCUEIL</a>
+        <div class="py-6 border-b border-gray-800">
+            <span class="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6 block uppercase">Nos Modèles</span>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="pista-hr.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="pista-hr-plus.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR+ <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="pista-vcx.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA VCX <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="ghost-v7.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">GHOST V7 <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="black-street.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLACK STREET <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="power-spring-st.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">SPRING ST <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="blaster.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLASTER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            </div>
+        </div>
+        <a href="../a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">À PROPOS</a>
+        <a href="../atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">L'ATELIER</a>
+        <a href="../contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red">CONTACT</a>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-white">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+    </div>
+
+    </div>
+
+    <!-- Header -->
+
+
+    <!-- ===== SECTION 1: HERO FULL WIDTH VIDEO ===== -->
+    <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- Background 16:9 Video -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src="../media/power-spring-st/kim4.mp4" type="video/mp4">
+            </video>
+            <!-- Overlay to make text readable -->
+            <div class="absolute inset-0 bg-gradient-to-t from-kim-darker via-black/50 to-kim-darker/80"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 w-full max-w-6xl mt-20">
+            <div class="inline-flex items-center gap-3 px-4 py-2 border border-white/20 rounded-full mb-8 backdrop-blur-md bg-black/30">
+                <i class="fa-solid fa-microchip text-kim-gold"></i>
+                <span class="text-white text-xs font-bold uppercase tracking-[0.2em]">Technologie & Connectivité</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-sport font-bold text-white leading-none mb-6">
+                POWER SPRING <span class="text-transparent text-outline-spring">ST</span>
+            </h1>
+            
+            <p class="text-gray-200 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto">
+                Conçu pour offrir une expérience de conduite exceptionnelle. Performance urbaine, sécurité avancée et design contemporain.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#details" class="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest text-sm hover:bg-gray-200 transition-colors shadow-xl rounded-sm">Explorer le modèle</a>
+                <a href="#fiche" class="px-10 py-4 border border-white/30 text-white font-bold uppercase tracking-widest text-sm hover:border-kim-gold hover:text-kim-gold transition-colors backdrop-blur-md rounded-sm">Fiche Technique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 2: FEATURE MARQUEE ===== -->
+    <section class="bg-black py-0 border-y border-gray-900 relative z-20">
+        <div class="marquee-track py-6">
+            <div class="marquee-item"><i class="fa-brands fa-bluetooth text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Connectivité Bluetooth</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-key text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Keyless GO</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-motorcycle text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Moteur 124 CC</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gauge text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Compteur Digital</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-brands fa-usb text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Chargeur USB</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            
+            <!-- Duplicate for loop -->
+            <div class="marquee-item"><i class="fa-brands fa-bluetooth text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Connectivité Bluetooth</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-key text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Keyless GO</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-motorcycle text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Moteur 124 CC</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gauge text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Compteur Digital</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-brands fa-usb text-kim-gold text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Chargeur USB</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: SQUARE VIDEO & CONFORT ===== -->
+    <section id="details" class="bg-kim-darker py-24 relative spring-pattern">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Square Video -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-kim-gold/10 blur-2xl rounded-[40px] transform rotate-3 group-hover:rotate-6 transition-transform duration-700"></div>
+                    <div class="relative w-full aspect-square rounded-[30px] overflow-hidden shadow-2xl border border-white/10">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="../media/power-spring-st/kim3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Text content -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-kim-gold font-bold tracking-[0.3em] uppercase text-sm block mb-4">Confort de Conduite Optimal</span>
+                        <h2 class="text-5xl lg:text-7xl font-sport font-bold text-white leading-none">LA ROUTE <br>SANS <span class="text-kim-gold">EFFORT</span></h2>
+                    </div>
+                    
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Le design élégant de la Power Spring ST cache une ergonomie pensée pour les trajets prolongés. Son coloris noir sobre et raffiné affirme un style contemporain incomparable.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="glass-panel p-6 rounded-2xl hover:border-kim-gold/50 transition-colors">
+                            <i class="fa-solid fa-arrows-up-down text-kim-gold text-2xl mb-4"></i>
+                            <h4 class="text-white font-bold text-lg mb-2">Suspension Adaptative</h4>
+                            <p class="text-gray-500 text-sm">Avant hydraulique et arrière à ressorts pour absorber efficacement les chocs sur tout type de route.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl hover:border-kim-gold/50 transition-colors">
+                            <i class="fa-solid fa-chair text-kim-gold text-2xl mb-4"></i>
+                            <h4 class="text-white font-bold text-lg mb-2">Selle Ergonomique</h4>
+                            <p class="text-gray-500 text-sm">Conçue pour garantir un confort optimal lors des trajets urbains ou des longues distances sans fatigue.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: TECHNOLOGIE & SECURITÉ ===== -->
+    <section class="bg-black py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-kim-darker/50"></div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-7xl font-sport font-bold text-white">SÉCURITÉ & <span class="text-kim-gold">CONNECTIVITÉ</span></h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Des fonctionnalités technologiques avancées pour un quotidien simplifié.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Tech Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-kim-gold group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-key text-2xl text-kim-gold group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-3">Keyless GO & Start</h3>
+                    <p class="text-gray-400 text-sm">Démarrage sans clé rapide, bloque-guidon et systèmes antivol avancés pour une sérénité totale.</p>
+                </div>
+
+                <!-- Tech Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-kim-gold group-hover:text-black transition-colors">
+                        <i class="fa-brands fa-bluetooth-b text-2xl text-kim-gold group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-3">Bluetooth & Digital</h3>
+                    <p class="text-gray-400 text-sm">Compteur digital intuitif et connectivité smartphone pour une expérience immersive.</p>
+                </div>
+
+                <!-- Tech Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-kim-gold group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-box-open text-2xl text-kim-gold group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-3">Coffre à Distance</h3>
+                    <p class="text-gray-400 text-sm">Ouverture du coffre à distance pour un accès rapide et sécurisé à vos affaires personnelles.</p>
+                </div>
+
+                <!-- Tech Card 4 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-kim-gold group-hover:text-black transition-colors">
+                        <i class="fa-brands fa-usb text-2xl text-kim-gold group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-3">Chargeur USB</h3>
+                    <p class="text-gray-400 text-sm">Praticité au quotidien : rechargez vos appareils mobiles en route en toute simplicité.</p>
+                </div>
+            </div>
+            
+            <div class="mt-20">
+                <img src="../media/power-spring-st/kim3_affiche-spring.webp" alt="Power Spring ST Tech" class="w-full rounded-3xl object-cover shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: FICHE TECHNIQUE ===== -->
+    <section id="fiche" class="bg-kim-darker py-24 border-t border-gray-900 relative">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <div class="w-full lg:w-1/3">
+                    <div class="sticky top-32">
+                        <span class="text-kim-gold font-bold tracking-[0.3em] uppercase text-sm mb-4 block">Données Précises</span>
+                        <h2 class="text-5xl lg:text-7xl font-sport font-bold text-white mb-6 leading-none">FICHE<br>TECHNIQUE</h2>
+                        <p class="text-gray-400 mb-8">Toutes les informations techniques détaillées de la POWER SPRING ST. Vous pouvez consulter les données ci-contre ou conserver le format original.</p>
+                        
+                        <!-- Download Button -->
+                        <a href="../media/power-spring-st/fiche-technique.webp" download="Fiche_Technique_Power_Spring_ST.webp" class="inline-flex items-center justify-center gap-4 w-full px-8 py-4 bg-kim-gold text-black font-bold uppercase tracking-widest text-sm hover:bg-yellow-600 transition-colors rounded-lg shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <i class="fa-solid fa-download text-lg"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-2/3">
+                    <div class="bg-black border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
+                        
+                        <!-- Moteur & Performances -->
+                        <div class="border-b border-gray-800">
+                            <div class="bg-[#111] py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-fire text-kim-gold text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">MOTEUR & PERFORMANCES</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Marque</p><p class="text-gray-200 font-medium">SPRING ST</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Type moteur</p><p class="text-gray-200 font-medium">Monocylindre 4T Simple ACT 2 SOUPAPES</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Cylindrée</p><p class="text-gray-200 font-medium">124 CM3</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Refroidissement</p><p class="text-gray-200 font-medium">Air</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Système d'alimentation</p><p class="text-gray-200 font-medium">Carburateur</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Boîte de vitesse</p><p class="text-gray-200 font-medium">Manuel</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Embrayage</p><p class="text-gray-200 font-medium">Double Embrayage</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Puissance</p><p class="text-gray-200 font-medium">9.5 CH (7.5KW) à 8.000 tr/min</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Couple</p><p class="text-gray-200 font-medium">10 Nm à 6.500 tr/min</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Vitesse Max</p><p class="text-gray-200 font-medium">95 km/h</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Réservoir</p><p class="text-gray-200 font-medium">4 Litres</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Partie Cycle -->
+                        <div class="border-b border-gray-800">
+                            <div class="bg-[#111] py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-circle-notch text-kim-gold text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">PARTIE CYCLE</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Suspension avant</p><p class="text-gray-200 font-medium">Fourche télescopique</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Suspension arrière</p><p class="text-gray-200 font-medium">Bras oscillant double-amortisseur</p></div>
+                                <div class="md:col-span-2"><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Frein avant</p><p class="text-gray-200 font-medium">Simple disque ; étriers 2 pistons ; CBS</p></div>
+                                <div class="md:col-span-2"><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Frein arrière</p><p class="text-gray-200 font-medium">Simple disque ; étrier 2 piston ; CBS</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Pneu Avant</p><p class="text-gray-200 font-medium">2.50-17 kenda</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Pneu arrière</p><p class="text-gray-200 font-medium">2.75-17 kenda</p></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dimensions -->
+                        <div>
+                            <div class="bg-[#111] py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-ruler-combined text-kim-gold text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">DIMENSIONS & POIDS</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Longueur</p><p class="text-gray-200 font-medium">1.860 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Largeur</p><p class="text-gray-200 font-medium">740 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Hauteur</p><p class="text-gray-200 font-medium">1.150 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Empattement</p><p class="text-gray-200 font-medium">1.300 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Poids</p><p class="text-gray-200 font-medium">251 kg</p></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-24 pb-10">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 w-auto mb-8 object-contain invert brightness-0">
+                    <p class="text-gray-400 text-lg font-light leading-relaxed max-w-md mb-6">L'excellence mécanique, le design sans compromis. KIM Motors repousse les limites de l'expérience sur deux roues.</p>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fa-solid fa-location-dot w-6 text-kim-red"></i> 16 Rue Ali Eddouaji Montfleury, Tunis</p>
+                        <p><i class="fa-solid fa-phone w-6 text-kim-red"></i> +216 22 004 151 / +216 26 717 992</p>
+                        <p><i class="fa-solid fa-envelope w-6 text-kim-red"></i> s.commercial.ktg@gmail.com</p>
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">MENU</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-kim-red transition-colors">Accueil</a></li>
+                        <li><a href="../a-propos.html" class="text-gray-400 hover:text-kim-red transition-colors">À Propos</a></li>
+                        <li><a href="../atelier.html" class="text-gray-400 hover:text-kim-red transition-colors">L'Atelier</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-kim-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">SUIVEZ-NOUS</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row items-center justify-between text-gray-600 text-sm">
+                <p>&copy; 2026 KIM Motors. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

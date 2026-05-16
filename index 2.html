@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIM Motors - La Puissance à l'État Pur</title>
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <meta name="description" content="KIM Motors : Des motos d'exception. Pista HR, Ghost V7, Blaster...">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kim: {
+                            red: '#A11603',
+                            dark: '#050505',
+                            darker: '#000000',
+                            light: '#ffffff',
+                            gray: '#111111'
+                        }
+                    },
+                    fontFamily: {
+                        sport: ['Teko', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white dark:bg-kim-darker text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+
+    <!-- Loader (Giant Logo) -->
+    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-kim-darker transition-opacity duration-700">
+        <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
+            <!-- Grayscale Logo (Background) -->
+            <img src="media/logo.png" alt="KIM Motors Loading" class="w-full h-auto opacity-10 grayscale">
+            
+            <!-- Colored Logo (Foreground filling up) -->
+            <div class="absolute inset-0 overflow-hidden loader-fill">
+                <img src="media/logo.png" alt="KIM Motors Loading" class="w-full h-auto max-w-none">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar 2026 -->
+    <header class="absolute w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <!-- Frosted Glass Background -->
+        <div class="absolute inset-0 bg-white/70 dark:bg-kim-darker/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="nav-logo-container flex items-center shrink-0">
+                    <img src="media/logo.png" alt="KIM Motors" class="nav-logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors active">Accueil</a>
+                    
+                    <!-- Mega Menu Trigger -->
+                    <div class="h-20 flex items-center" id="nav-modeles">
+                        <a href="#" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors flex items-center gap-2">
+                            Modèles <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                    </div>
+
+                    <a href="a-propos.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">À Propos</a>
+                    <a href="atelier.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">L'Atelier</a>
+                    <a href="contact.html" class="hover-underline text-sm font-bold uppercase tracking-widest text-gray-800 dark:text-gray-200 hover:text-kim-red dark:hover:text-kim-red transition-colors">Contact</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-6">
+                    <a href="devis.html" class="hidden lg:flex magnetic-wrap">
+                        <span class="magnetic-btn px-6 py-2 border border-gray-300 dark:border-gray-700 text-sm font-bold uppercase tracking-widest hover:border-kim-red">
+                            <span class="relative z-10">Demander un Devis</span>
+                        </span>
+                    </a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="relative group p-2 text-gray-600 dark:text-gray-400 hover:text-kim-red dark:hover:text-kim-red transition-colors">
+                        <i class="fa-solid fa-moon dark:hidden text-xl"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-xl"></i>
+                        <div class="absolute inset-0 bg-kim-red/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-800 dark:text-gray-200">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Menu Dropdown -->
+        <div id="mega-menu" class="absolute top-20 left-0 w-full bg-white/95 dark:bg-kim-darker/95 backdrop-blur-2xl border-b border-gray-200 dark:border-gray-800 shadow-2xl">
+            <div class="container mx-auto px-4 py-10">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    <!-- Model Items -->
+                    <a href="modeles/pista-hr.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <img src="media/pista-hr/kim1_hr-affiche-2.1.jpg" alt="Pista HR" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">PISTA HR</h4>
+                    </a>
+                    <a href="modeles/pista-hr-plus.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <!-- Placeholder Image -->
+                            <img src="media/pista-hr/kim1_hr-affiche-2.1.jpg" alt="Pista HR+" class="w-full h-full object-cover filter hue-rotate-90">
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">PISTA HR+</h4>
+                    </a>
+                    <a href="modeles/pista-vcx.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <!-- Placeholder -->
+                            <img src="media/pista-hr/kim1_hr-affiche-2.1.jpg" alt="Pista VCX" class="w-full h-full object-cover filter invert">
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">PISTA VCX</h4>
+                    </a>
+                    <a href="modeles/ghost-v7.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <img src="media/ghost-v7/kim2_AFF.jpg" alt="Ghost V7" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">GHOST V7</h4>
+                    </a>
+                    <a href="modeles/black-street.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <!-- Placeholder -->
+                            <div class="w-full h-full bg-black flex items-center justify-center"><span class="text-white font-sport text-xl">BLACK STREET</span></div>
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">BLACK STREET</h4>
+                    </a>
+                    <a href="modeles/power-spring-st.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <div class="w-full h-full bg-gray-800"></div>
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">POWER SPRING ST</h4>
+                    </a>
+                    <a href="modeles/power-125.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <div class="w-full h-full bg-gray-700"></div>
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">POWER 125</h4>
+                    </a>
+                    <a href="modeles/power-110.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <div class="w-full h-full bg-gray-600"></div>
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">POWER 110</h4>
+                    </a>
+                    <a href="modeles/blaster.html" class="mega-menu-item block group">
+                        <div class="aspect-video bg-gray-100 dark:bg-kim-gray mb-4 overflow-hidden rounded-lg flex items-center justify-center p-4">
+                            <img src="media/blaster/kim3_affiche-blaster-copie.jpg" alt="Blaster" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-sport font-bold text-2xl tracking-wide group-hover:text-kim-red transition-colors">BLASTER</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+            <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-kim-darker/95 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 md:hidden flex flex-col overflow-y-auto pb-10">
+        <a href="index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6 text-kim-red">ACCUEIL</a>
+        <div class="py-6 border-b border-gray-200 dark:border-gray-800">
+            <span class="text-4xl font-sport font-bold tracking-widest text-gray-500 mb-4 block">MODÈLES</span>
+            <div class="grid grid-cols-2 gap-4 pl-4">
+                <a href="modeles/pista-hr.html" class="font-bold text-lg">PISTA HR</a>
+                <a href="modeles/pista-hr-plus.html" class="font-bold text-lg">PISTA HR+</a>
+                <a href="modeles/pista-vcx.html" class="font-bold text-lg">PISTA VCX</a>
+                <a href="modeles/ghost-v7.html" class="font-bold text-lg">GHOST V7</a>
+                <a href="modeles/black-street.html" class="font-bold text-lg">BLACK STREET</a>
+                <a href="modeles/power-spring-st.html" class="font-bold text-lg">SPRING ST</a>
+                <a href="modeles/blaster.html" class="font-bold text-lg text-kim-red">BLASTER</a>
+            </div>
+        </div>
+        <a href="a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6">À PROPOS</a>
+        <a href="atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-200 dark:border-gray-800 py-6">L'ATELIER</a>
+        <a href="contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6">CONTACT</a>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-gray-800 dark:text-gray-200">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+    </div>
+
+<main class="min-h-screen">
+        <!-- Hero Carousel Section -->
+        <section id="accueil" class="relative h-screen overflow-hidden bg-kim-darker">
+            <div id="hero-carousel" class="absolute inset-0">
+                <!-- Slides injected by main.js -->
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div id="carousel-indicators" class="absolute bottom-12 right-12 z-30 flex gap-3"></div>
+            
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center opacity-0 hero-elem">
+                <span class="text-white/40 text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Scroll</span>
+                <div class="w-[2px] h-16 bg-white/10 relative overflow-hidden rounded-full">
+                    <div class="absolute top-0 left-0 w-full h-1/2 bg-kim-red animate-scroll-line rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modèles Preview Section -->
+        <section id="modeles" class="py-32 bg-white dark:bg-kim-darker relative z-10">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                    <div>
+                        <span class="text-kim-red font-bold tracking-[0.2em] uppercase text-sm mb-2 block">Nos Créations</span>
+                        <h2 class="text-6xl md:text-8xl font-sport font-bold leading-none">VÉHICULES <br>PHARES</h2>
+                    </div>
+                    <a href="#" class="hidden md:flex items-center gap-4 text-lg font-bold hover:text-kim-red transition-colors group">
+                        Voir tout <div class="w-12 h-[2px] bg-black dark:bg-white group-hover:bg-kim-red transition-colors relative overflow-hidden"><div class="absolute inset-0 bg-kim-red transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div></div>
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Cards with 2026 magnetic glass style -->
+                    <a href="modeles/pista-hr.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                        <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <img src="media/pista-hr/kim1_hr-affiche-2.1.jpg" alt="Pista HR" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">
+                            <div class="absolute bottom-8 left-8 z-20 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                <span class="px-4 py-2 bg-kim-red text-white text-sm font-bold uppercase tracking-wider rounded-full">Explorer</span>
+                            </div>
+                        </div>
+                        <div class="p-8 absolute top-0 left-0 w-full z-20">
+                            <h3 class="text-4xl font-sport font-bold text-white drop-shadow-lg">PISTA HR</h3>
+                        </div>
+                    </a>
+
+                    <a href="modeles/ghost-v7.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                        <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <img src="media/ghost-v7/kim2_AFF.jpg" alt="Ghost V7" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">
+                            <div class="absolute bottom-8 left-8 z-20 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                <span class="px-4 py-2 bg-kim-red text-white text-sm font-bold uppercase tracking-wider rounded-full">Explorer</span>
+                            </div>
+                        </div>
+                        <div class="p-8 absolute top-0 left-0 w-full z-20">
+                            <h3 class="text-4xl font-sport font-bold text-white drop-shadow-lg">GHOST V7</h3>
+                        </div>
+                    </a>
+
+                    <a href="modeles/blaster.html" class="group relative bg-gray-50 dark:bg-kim-dark rounded-2xl overflow-hidden block">
+                        <div class="aspect-[4/5] overflow-hidden p-8 flex items-center justify-center relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <img src="media/blaster/kim3_affiche-blaster-copie.jpg" alt="Blaster" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out">
+                            <div class="absolute bottom-8 left-8 z-20 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                <span class="px-4 py-2 bg-kim-red text-white text-sm font-bold uppercase tracking-wider rounded-full">Explorer</span>
+                            </div>
+                        </div>
+                        <div class="p-8 absolute top-0 left-0 w-full z-20">
+                            <h3 class="text-4xl font-sport font-bold text-white drop-shadow-lg">BLASTER</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="relative w-full h-[600px] bg-kim-darker overflow-hidden">
+            <div class="absolute inset-0 map-container">
+                <iframe src="https://maps.google.com/maps?q=16%20Rue%20Ali%20Eddouaji%20Montfleury%20%2C%20Tunis%2C%20Tunisia&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <!-- Floating Contact Card (Glassmorphism) -->
+            <div class="absolute top-1/2 left-8 md:left-24 transform -translate-y-1/2 bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-white/20 p-10 rounded-3xl max-w-md shadow-2xl z-10 pointer-events-none">
+                <h3 class="text-5xl font-sport font-bold text-white mb-6">NOTRE ATELIER</h3>
+                <div class="space-y-4 text-white">
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-location-dot text-kim-red text-xl w-6"></i> 16 Rue Ali Eddouaji Montfleury, Tunis, Tunisia</p>
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-phone text-kim-red text-xl w-6"></i> +216 22 004 151 / +216 26 717 992</p>
+                    <p class="flex items-center gap-4"><i class="fa-solid fa-envelope text-kim-red text-xl w-6"></i> s.commercial.ktg@gmail.com</p>
+                </div>
+                <div class="mt-8 pointer-events-auto magnetic-wrap inline-block">
+                    <a href="contact.html" class="magnetic-btn px-8 py-4 bg-kim-red text-white font-bold uppercase tracking-widest text-sm rounded-full">
+                        <span class="relative z-10">Nous Trouver</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-24 pb-10">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="media/logo.png" alt="KIM Motors" class="h-16 w-auto mb-8 object-contain invert brightness-0">
+                    <p class="text-gray-400 text-lg font-light leading-relaxed max-w-md mb-6">L'excellence mécanique, le design sans compromis. KIM Motors repousse les limites de l'expérience sur deux roues.</p>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fa-solid fa-location-dot w-6 text-kim-red"></i> 16 Rue Ali Eddouaji Montfleury, Tunis</p>
+                        <p><i class="fa-solid fa-phone w-6 text-kim-red"></i> +216 22 004 151 / +216 26 717 992</p>
+                        <p><i class="fa-solid fa-envelope w-6 text-kim-red"></i> s.commercial.ktg@gmail.com</p>
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">MENU</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-kim-red transition-colors">Accueil</a></li>
+                        <li><a href="a-propos.html" class="text-gray-400 hover:text-kim-red transition-colors">À Propos</a></li>
+                        <li><a href="atelier.html" class="text-gray-400 hover:text-kim-red transition-colors">L'Atelier</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-kim-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">SUIVEZ-NOUS</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row items-center justify-between text-gray-600 text-sm">
+                <p>&copy; 2026 KIM Motors. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes slowZoom {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.15); }
+        }
+    </style>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

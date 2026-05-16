@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PISTA VCX - KIM Motors</title>
+    <link rel="icon" type="image/png" href="../media/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { kim: { red: '#A11603', dark: '#050505', darker: '#000000', light: '#ffffff', gray: '#111111' } },
+                    fontFamily: { sport: ['Teko', 'sans-serif'], body: ['Inter', 'sans-serif'], }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .pista-pattern {
+            background-image: linear-gradient(45deg, #050505 25%, transparent 25%), linear-gradient(-45deg, #050505 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #050505 75%), linear-gradient(-45deg, transparent 75%, #050505 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #080808;
+        }
+        .text-outline-vcx {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+            color: transparent;
+        }
+        .vcx-glow {
+            box-shadow: 0 0 60px rgba(161, 22, 3, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300 overflow-x-hidden">
+    <!-- Loader (Giant Logo) -->
+    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
+        <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
+            <img src="../media/logo.png" alt="KIM Motors Loading" class="w-full h-auto opacity-10 grayscale">
+            <div class="absolute inset-0 overflow-hidden loader-fill">
+                <img src="../media/logo.png" alt="KIM Motors Loading" class="w-full h-auto max-w-none">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar (Unified) -->
+    <header class="absolute w-full z-50 top-0 transition-all duration-300 group" id="navbar">
+        <div class="absolute inset-0 bg-transparent transition-all duration-300" id="nav-bg"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center shrink-0 z-50 relative transition-transform duration-300 hover:scale-105">
+                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 md:h-20 w-auto object-contain drop-shadow-xl">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2 z-50">
+                    <a href="../index.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">Accueil</a>
+                    <div class="h-24 flex items-center cursor-pointer" id="nav-modeles">
+                        <a class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors flex items-center gap-2 group/menu">
+                            Modèles <i class="fa-solid fa-chevron-down text-[10px] group-hover/menu:rotate-180 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                    <a href="../a-propos.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">À Propos</a>
+                    <a href="../atelier.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">L'Atelier</a>
+                    <a href="../contact.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-6 z-50">
+                    <a href="../devis.html" class="hidden md:flex relative overflow-hidden group/btn px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-kim-red transition-colors">
+                        <div class="absolute inset-0 bg-kim-red transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out z-0"></div>
+                        <span class="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-white">Devis</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-white hover:text-kim-red transition-colors">
+                        <div class="w-8 h-[2px] bg-current mb-2"></div>
+                        <div class="w-6 h-[2px] bg-current mb-2 ml-auto"></div>
+                        <div class="w-8 h-[2px] bg-current"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Menu -->
+        <div id="mega-menu" class="absolute top-full left-0 w-full bg-kim-darker/98 backdrop-blur-3xl border-t border-b border-gray-800 shadow-2xl overflow-hidden">
+            <div class="container mx-auto px-4 py-12">
+                <div class="flex justify-between items-end mb-8 border-b border-gray-800 pb-4">
+                    <h3 class="text-3xl font-sport font-bold text-white tracking-widest">SÉLECTIONNEZ VOTRE <span class="text-kim-red">MODÈLE</span></h3>
+                    <a href="../catalogue.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">Voir tout le catalogue <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+                    <a href="pista-hr.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR</h4>
+                    </a>
+                    <a href="pista-hr-plus.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR+" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 filter hue-rotate-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR+</h4>
+                    </a>
+                    <a href="pista-vcx.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/pista-vcx/kim1_PISTA-1.webp" alt="Pista VCX" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA VCX</h4>
+                    </a>
+                    <a href="ghost-v7.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/ghost-v7/kim2_AFF.webp" alt="Ghost V7" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">GHOST V7</h4>
+                    </a>
+                    <a href="black-street.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/black-street/kim1_DSC06092.webp" alt="Black Street" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLACK STREET</h4>
+                    </a>
+                    <a href="power-spring-st.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/power-spring-st/kim3_affiche-spring.webp" alt="Power Spring ST" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">SPRING ST</h4>
+                    </a>
+                    <a href="blaster.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
+                        <img src="../media/blaster/kim3_affiche-blaster-copie.webp" alt="Blaster" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLASTER</h4>
+                    </a>
+                    <div class="group relative aspect-[3/4] overflow-hidden bg-gray-900 flex items-end p-4 opacity-50 cursor-not-allowed">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-gray-500 text-xs font-bold uppercase tracking-widest border border-gray-600 px-3 py-1">Bientôt</span>
+                        </div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-gray-400">POWER</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 lg:hidden flex flex-col overflow-y-auto pb-10">
+        <a href="../index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red">ACCUEIL</a>
+        <div class="py-6 border-b border-gray-800">
+            <span class="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6 block uppercase">Nos Modèles</span>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="pista-hr.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="pista-hr-plus.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR+ <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="pista-vcx.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA VCX <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="ghost-v7.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">GHOST V7 <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="black-street.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLACK STREET <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="power-spring-st.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">SPRING ST <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="blaster.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLASTER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            </div>
+        </div>
+        <a href="../a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">À PROPOS</a>
+        <a href="../atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">L'ATELIER</a>
+        <a href="../contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red">CONTACT</a>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-white">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+    </div>
+
+    </div>
+
+
+
+    <!-- ===== SECTION 1: HERO SQUARE VIDEO ===== -->
+    <section class="relative min-h-screen pista-pattern flex items-center pt-24 pb-12 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-kim-darker via-transparent to-kim-darker pointer-events-none z-0"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 flex flex-col justify-center">
+                    <span class="text-kim-red font-bold tracking-[0.4em] uppercase text-sm mb-4">L'ADN Sportif Urbain</span>
+                    <h1 class="text-7xl md:text-8xl lg:text-9xl font-sport font-bold text-white leading-[0.85] mb-6 relative">
+                        <span class="absolute -left-4 -top-8 text-[150px] text-outline-vcx opacity-20 -z-10 select-none">VCX</span>
+                        PISTA<br><span class="text-kim-red">VCX</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg font-light mb-10 max-w-lg border-l-2 border-kim-red pl-6">
+                        Agilité fulgurante, design racé et moteur 102cc dynamique. La PISTA VCX redéfinit les règles de la ville avec une esthétique affûtée et une légèreté redoutable de seulement 90kg.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="../devis.html" class="px-10 py-4 bg-kim-red text-white font-bold uppercase tracking-widest text-sm hover:bg-red-800 transition-colors shadow-[0_0_20px_rgba(161,22,3,0.3)] hover:shadow-[0_0_30px_rgba(161,22,3,0.6)]">Commander</a>
+                        <a href="#specs" class="px-10 py-4 border border-gray-700 text-white font-bold uppercase tracking-widest text-sm hover:border-kim-red hover:text-kim-red transition-colors bg-black/30 backdrop-blur-sm">Détails Techniques</a>
+                    </div>
+                </div>
+                
+                <!-- 1:1 Video Container -->
+                <div class="order-1 lg:order-2 relative group flex justify-center lg:justify-end">
+                    <div class="absolute inset-0 bg-kim-red/20 blur-[100px] rounded-full scale-90 opacity-40 pulse-glow"></div>
+                    <!-- The 1:1 Square Video -->
+                    <div class="relative w-full max-w-[600px] aspect-square rounded-3xl overflow-hidden shadow-2xl border border-gray-800 group-hover:border-kim-red/50 transition-colors duration-500 z-10 vcx-glow">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="../media/pista-vcx/kim1_Séquence-03.mp4" type="video/mp4">
+                        </video>
+                        <!-- Frame Corner Accents -->
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-kim-red m-4 pointer-events-none"></div>
+                        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-kim-red m-4 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 2: PERFORMANCE MARQUEE ===== -->
+    <section class="bg-black py-0 border-y border-gray-900">
+        <div class="marquee-track py-6">
+            <div class="marquee-item"><i class="fa-solid fa-gauge-high text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Vitesse Max 70 km/h</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-bolt text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Puissance 5.8 Kw</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-weight-scale text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Poids Plume 90 Kg</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gears text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Automatique CVT</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gas-pump text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Réservoir 5.1L</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-shield text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Freins Disque/Tambour</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            
+            <!-- Duplicate for loop -->
+            <div class="marquee-item"><i class="fa-solid fa-gauge-high text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Vitesse Max 70 km/h</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-bolt text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Puissance 5.8 Kw</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-weight-scale text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Poids Plume 90 Kg</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gears text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Automatique CVT</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-gas-pump text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Réservoir 5.1L</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+            <div class="marquee-item"><i class="fa-solid fa-shield text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Freins Disque/Tambour</p></div></div>
+            <div class="marquee-item"><span class="text-gray-800 text-2xl">/</span></div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: IMAGE GALLERY SPLIT ===== -->
+    <section class="bg-kim-darker py-24 relative">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Image Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="../media/pista-vcx/kim1_DSC06164.webp" alt="Pista VCX Detail" class="w-full rounded-2xl hover:scale-105 transition-transform duration-500 shadow-xl">
+                        <img src="../media/pista-vcx/kim1_DSC06174.webp" alt="Pista VCX Front" class="w-full rounded-2xl hover:scale-105 transition-transform duration-500 shadow-xl">
+                    </div>
+                    <div class="space-y-4 pt-12">
+                        <img src="../media/pista-vcx/kim1_DSC06228.webp" alt="Pista VCX Engine" class="w-full rounded-2xl hover:scale-105 transition-transform duration-500 shadow-xl border border-kim-red/20">
+                        <img src="../media/pista-vcx/kim1_DSC06233.webp" alt="Pista VCX Style" class="w-full rounded-2xl hover:scale-105 transition-transform duration-500 shadow-xl">
+                    </div>
+                </div>
+                
+                <!-- Text Content -->
+                <div class="lg:pl-16 mt-12 lg:mt-0">
+                    <span class="text-kim-red font-bold tracking-[0.3em] uppercase text-sm block mb-4">Maniabilité Extrême</span>
+                    <h2 class="text-5xl lg:text-7xl font-sport font-bold text-white leading-none mb-8">TAILLÉE POUR<br>LA <span class="text-kim-red">VILLE</span></h2>
+                    
+                    <p class="text-gray-400 text-lg font-light leading-relaxed mb-8">
+                        Avec ses dimensions compactes (1800 x 710 mm) et son poids de seulement 90kg, la PISTA VCX se faufile partout. Son moteur 1P49QMQ de 102cc offre des accélérations franches pour se dégager du trafic avec une facilité déconcertante.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-black border border-gray-800 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-arrow-trend-up text-kim-red"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Couple Optimisé</h4>
+                                <p class="text-gray-500 text-sm">7.8 N.m à 5500 tr/min pour des démarrages réactifs au feu vert.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-black border border-gray-800 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-arrows-to-circle text-kim-red"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Freinage Sécurisant</h4>
+                                <p class="text-gray-500 text-sm">Distance d'arrêt < 7m à 30km/h grâce au système Disque/Tambour.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: FULL WIDTH BANNER ===== -->
+    <section class="relative h-[60vh] w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-black">
+            <img src="../media/pista-vcx/kim1_IMG_20240419_211601.webp" alt="Pista VCX Cinematic" class="w-full h-full object-cover opacity-50 scale-105 hover:scale-110 transition-transform duration-10000 ease-in-out">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-kim-darker via-transparent to-kim-darker"></div>
+        <div class="absolute inset-0 bg-kim-red/10"></div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-6xl md:text-8xl font-sport font-bold text-white mb-4 tracking-wide"><span class="text-transparent text-outline-vcx">RACE</span> READY</h2>
+            <p class="text-white text-xl font-light tracking-widest uppercase">Performance. Style. Pista VCX.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: SPECS TABLE ===== -->
+    <section id="specs" class="bg-black py-24 relative border-t border-gray-900">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="w-full lg:w-1/3">
+                    <div class="sticky top-32">
+                        <span class="text-kim-red font-bold tracking-[0.3em] uppercase text-sm mb-4 block">Données Précises</span>
+                        <h2 class="text-5xl lg:text-7xl font-sport font-bold text-white mb-6 leading-none">FICHE<br>TECHNIQUE</h2>
+                        <p class="text-gray-400 mb-8">Toutes les informations techniques détaillées de la PISTA VCX. Une conception rigoureuse pour des performances durables.</p>
+                        
+                        <a href="../devis.html" class="inline-flex items-center gap-3 px-10 py-4 bg-kim-red text-white font-bold uppercase tracking-widest hover:bg-red-800 transition-colors text-sm w-full justify-center rounded-lg">
+                            <i class="fa-solid fa-file-lines"></i> Demander un Devis
+                        </a>
+                        
+                        <!-- Mini visual -->
+                        <div class="mt-12 opacity-30 hidden lg:block hover:opacity-100 transition-opacity duration-500">
+                            <img src="../media/pista-vcx/kim1_pista-17.webp" alt="Pista VCX Silhouette" class="w-full object-contain mix-blend-screen grayscale">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-2/3">
+                    <div class="bg-kim-darker border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
+                        
+                        <!-- Moteur & Performances -->
+                        <div class="border-b border-gray-800">
+                            <div class="bg-black py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-fire text-kim-red text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">MOTEUR & PERFORMANCES</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Moteur</p><p class="text-gray-200 font-medium">Monocylindre, 4 Temps, Refroidissement à Air</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Type Moteur</p><p class="text-gray-200 font-medium">1P49QMQ</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Cylindrée</p><p class="text-gray-200 font-medium">102 CC</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Puissance maximale</p><p class="text-gray-200 font-medium">5.8 Kw / 8000 r/min</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Couple Maximum</p><p class="text-gray-200 font-medium">7.8 N.m / 5500 r/min</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Vitesse maximale</p><p class="text-gray-200 font-medium">70 km/h</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Alimentation</p><p class="text-gray-200 font-medium">Carburateur</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Boite à vitesse</p><p class="text-gray-200 font-medium">Automatique CVT</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Allumage</p><p class="text-gray-200 font-medium">CDI</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Mode de démarrage</p><p class="text-gray-200 font-medium">Électrique</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Dimensions -->
+                        <div class="border-b border-gray-800">
+                            <div class="bg-black py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-ruler-combined text-kim-red text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">DIMENSIONS & POIDS</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Dimensions (L x l x h)</p><p class="text-gray-200 font-medium">1 800 × 710 × 1 020 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Empattement</p><p class="text-gray-200 font-medium">1 200 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Garde au sol</p><p class="text-gray-200 font-medium">115 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Hauteur de selle</p><p class="text-gray-200 font-medium">740 mm</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Poids net</p><p class="text-gray-200 font-medium">90 Kg</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Capacité réservoir</p><p class="text-gray-200 font-medium">5.1 Litres</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Cycle -->
+                        <div>
+                            <div class="bg-black py-4 px-6 flex items-center gap-4">
+                                <i class="fa-solid fa-circle-notch text-kim-red text-xl"></i>
+                                <h3 class="font-sport text-2xl font-bold text-white tracking-wide m-0">PARTIE CYCLE</h3>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Suspension avant</p><p class="text-gray-200 font-medium">Fourche télescopique hydraulique</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Suspension arrière</p><p class="text-gray-200 font-medium">Bras oscillant / Mono amortisseur</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Freinage (AV / AR)</p><p class="text-gray-200 font-medium">Disque / Tambour (Main/Main)</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Performance freinage</p><p class="text-gray-200 font-medium">< 7m / 30 km/h</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Roues (AV / AR)</p><p class="text-gray-200 font-medium">(100/90-10) / (100/90-10)</p></div>
+                                <div><p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Batterie</p><p class="text-gray-200 font-medium">12V 7AH</p></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-24 pb-10">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 w-auto mb-8 object-contain invert brightness-0">
+                    <p class="text-gray-400 text-lg font-light leading-relaxed max-w-md mb-6">L'excellence mécanique, le design sans compromis. KIM Motors repousse les limites de l'expérience sur deux roues.</p>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fa-solid fa-location-dot w-6 text-kim-red"></i> 16 Rue Ali Eddouaji Montfleury, Tunis</p>
+                        <p><i class="fa-solid fa-phone w-6 text-kim-red"></i> +216 22 004 151 / +216 26 717 992</p>
+                        <p><i class="fa-solid fa-envelope w-6 text-kim-red"></i> s.commercial.ktg@gmail.com</p>
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">MENU</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-kim-red transition-colors">Accueil</a></li>
+                        <li><a href="../a-propos.html" class="text-gray-400 hover:text-kim-red transition-colors">À Propos</a></li>
+                        <li><a href="../atelier.html" class="text-gray-400 hover:text-kim-red transition-colors">L'Atelier</a></li>
+                        <li><a href="../contact.html" class="text-gray-400 hover:text-kim-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4">
+                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-wide text-gray-200">SUIVEZ-NOUS</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row items-center justify-between text-gray-600 text-sm">
+                <p>&copy; 2026 KIM Motors. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
