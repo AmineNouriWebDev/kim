@@ -220,18 +220,18 @@
                         Conçu pour les motards qui veulent allier liberté et performance. Un moteur monocylindre Jinlang 125CC délivrant une accélération fluide et réactive pour dompter la ville avec style.
                     </p>
                     
-                    <!-- Color Selector -->
-                    <div class="mb-10 p-6 glass-card rounded-2xl inline-block">
-                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4 font-bold">Sélectionnez la finition</p>
+                    <!-- Color Selector (Desktop) -->
+                    <div class="mb-10 p-6 glass-card rounded-2xl hidden lg:inline-block">
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4 font-bold">Sélectionnez la couleur</p>
                         <div class="flex gap-4 flex-wrap">
-                            <button onclick="changeColor('noir','../media/ghost-v7/kim3_GHOST-AFFICHE-NOIR-NOIR.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-white ring-2 ring-white ring-offset-4 ring-offset-[#1a1a24] transition-all relative overflow-hidden" style="background:#111" title="Noir Intégral"></button>
-                            <button onclick="changeColor('bleu','../media/ghost-v7/kim3_GHOST-BLEU.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent hover:border-white transition-all relative overflow-hidden" style="background:#2563eb" title="Bleu Électrique"></button>
-                            <button onclick="changeColor('carbon','../media/ghost-v7/kim3_GHOST-CARBON.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent hover:border-white transition-all relative overflow-hidden" style="background:linear-gradient(45deg, #222, #444)" title="Finition Carbon"></button>
-                            <button onclick="changeColor('blanc','../media/ghost-v7/kim3_GHOST-blanc.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent hover:border-white transition-all relative overflow-hidden" style="background:#f1f5f9" title="Blanc Pur"></button>
-                            <button onclick="changeColor('vert','../media/ghost-v7/kim3_ghost-v7-vert.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent hover:border-white transition-all relative overflow-hidden" style="background:#16a34a" title="Vert Sport"></button>
-                            <button onclick="changeColor('rouge','../media/ghost-v7/kim2_ghost-rouge-affiche.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent hover:border-white transition-all relative overflow-hidden" style="background:#dc2626" title="Rouge Racing"></button>
+                            <button data-color="noir" onclick="changeColor('noir','../media/ghost-v7/kim3_GHOST-AFFICHE-NOIR-NOIR.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-white transition-all relative overflow-hidden shadow-[0_0_0_2px_#1a1a24,0_0_0_4px_#fff]" style="background:#111" title="Noir Intégral"></button>
+                            <button data-color="bleu" onclick="changeColor('bleu','../media/ghost-v7/kim3_GHOST-BLEU.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent transition-all relative overflow-hidden" style="background:#2563eb" title="Bleu Électrique"></button>
+                            <button data-color="carbon" onclick="changeColor('carbon','../media/ghost-v7/kim3_GHOST-CARBON.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent transition-all relative overflow-hidden" style="background:linear-gradient(45deg, #222, #444)" title="Finition Carbon"></button>
+                            <button data-color="blanc" onclick="changeColor('blanc','../media/ghost-v7/kim3_GHOST-blanc.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent transition-all relative overflow-hidden" style="background:#f1f5f9" title="Blanc Pur"></button>
+                            <button data-color="vert" onclick="changeColor('vert','../media/ghost-v7/kim3_ghost-v7-vert.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent transition-all relative overflow-hidden" style="background:#16a34a" title="Vert Sport"></button>
+                            <button data-color="rouge" onclick="changeColor('rouge','../media/ghost-v7/kim2_ghost-rouge-affiche.webp')" class="ghost-color-btn w-12 h-12 rounded-full border-2 border-transparent transition-all relative overflow-hidden" style="background:#dc2626" title="Rouge Racing"></button>
                         </div>
-                        <p id="color-label" class="text-white text-sm font-bold mt-4 tracking-widest uppercase">Noir Intégral</p>
+                        <p class="color-label-text text-white text-sm font-bold mt-4 tracking-widest uppercase">Noir Intégral</p>
                     </div>
                     
                     <div class="hidden md:flex flex-wrap gap-4">
@@ -239,9 +239,23 @@
                     </div>
                 </div>
 
-                <div class="order-1 lg:order-2 relative flex justify-center items-center">
+                <div class="order-1 lg:order-2 relative flex flex-col justify-center items-center">
                     <div class="absolute inset-0 bg-white/5 blur-[150px] rounded-full scale-90 ghost-glow"></div>
-                    <img id="ghost-main-img" src="../media/ghost-v7/kim3_GHOST-AFFICHE-NOIR-NOIR.webp" alt="GHOST V7" class="relative z-10 w-full max-w-[800px] object-contain drop-shadow-2xl transition-all duration-700 hover:scale-105">
+                    <img id="ghost-main-img" src="../media/ghost-v7/kim3_GHOST-AFFICHE-NOIR-NOIR.webp" alt="GHOST V7" class="relative z-10 w-full max-w-[800px] object-contain drop-shadow-2xl transition-all duration-700 hover:scale-105 mb-6 lg:mb-0">
+                    
+                    <!-- Color Selector (Mobile) -->
+                    <div class="p-4 glass-card rounded-2xl lg:hidden flex flex-col items-center z-20 w-full max-w-sm">
+                        <p class="text-white/60 text-[10px] uppercase tracking-widest mb-3 font-bold">Sélectionnez la couleur</p>
+                        <div class="flex gap-2 flex-wrap justify-center">
+                            <button data-color="noir" onclick="changeColor('noir','../media/ghost-v7/kim3_GHOST-AFFICHE-NOIR-NOIR.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-white transition-all relative overflow-hidden shadow-[0_0_0_2px_#1a1a24,0_0_0_3px_#fff]" style="background:#111" title="Noir Intégral"></button>
+                            <button data-color="bleu" onclick="changeColor('bleu','../media/ghost-v7/kim3_GHOST-BLEU.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-transparent transition-all relative overflow-hidden" style="background:#2563eb" title="Bleu Électrique"></button>
+                            <button data-color="carbon" onclick="changeColor('carbon','../media/ghost-v7/kim3_GHOST-CARBON.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-transparent transition-all relative overflow-hidden" style="background:linear-gradient(45deg, #222, #444)" title="Finition Carbon"></button>
+                            <button data-color="blanc" onclick="changeColor('blanc','../media/ghost-v7/kim3_GHOST-blanc.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-transparent transition-all relative overflow-hidden" style="background:#f1f5f9" title="Blanc Pur"></button>
+                            <button data-color="vert" onclick="changeColor('vert','../media/ghost-v7/kim3_ghost-v7-vert.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-transparent transition-all relative overflow-hidden" style="background:#16a34a" title="Vert Sport"></button>
+                            <button data-color="rouge" onclick="changeColor('rouge','../media/ghost-v7/kim2_ghost-rouge-affiche.webp')" class="ghost-color-btn w-8 h-8 rounded-full border border-transparent transition-all relative overflow-hidden" style="background:#dc2626" title="Rouge Racing"></button>
+                        </div>
+                        <p class="color-label-text text-white text-[10px] font-bold mt-3 tracking-widest uppercase">Noir Intégral</p>
+                    </div>
                 </div>
                 
             </div>
@@ -260,37 +274,37 @@
     </div>
 
     <!-- ===== SECTION 2: TECH MARQUEE ===== -->
-    <section class="glass-card border-y border-white/10 py-0 relative z-20">
-        <div class="marquee-track py-8">
+    <section class="glass-card border-y border-white/10 py-0 relative z-20 overflow-hidden">
+        <div class="marquee-track py-0 md:py-2">
             <div class="marquee-item"><i class="fa-solid fa-microchip text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Moteur JINLANG</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-motorcycle text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">125 CC</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-bolt text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">6.8 kW @ 7500 tr/min</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-shield text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Freinage Disque/CBS</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-gears text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Automatique CVT</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             
             <!-- Duplicate for loop -->
             <div class="marquee-item"><i class="fa-solid fa-microchip text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Moteur JINLANG</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-motorcycle text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">125 CC</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-bolt text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">6.8 kW @ 7500 tr/min</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-shield text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Freinage Disque/CBS</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
             <div class="marquee-item"><i class="fa-solid fa-gears text-kim-red text-2xl"></i><div><p class="text-white font-bold text-lg tracking-wide uppercase">Automatique CVT</p></div></div>
-            <div class="marquee-item"><span class="text-white/20 text-2xl">|</span></div>
+            <span class="text-white/20 text-2xl px-4 md:px-6 flex items-center shrink-0">|</span>
         </div>
     </section>
 
     <!-- ===== SECTION 3: MANIFESTO & FEATURES ===== -->
-    <section class="bg-black py-24 relative overflow-hidden">
+    <section class="bg-black pt-12 pb-24 lg:pt-24 lg:pb-24 relative overflow-hidden">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 
                 <div class="space-y-8 pr-0 lg:pr-12">
                     <div>
@@ -334,7 +348,7 @@
     </section>
 
     <!-- ===== SECTION 4: CINEMATIC VIDEO BACKGROUND ===== -->
-    <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
+    <section class="relative w-full overflow-hidden flex items-center justify-center py-12 md:py-24 lg:py-32 px-4">
         <!-- Video Background -->
         <div class="absolute inset-0 bg-black">
             <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
@@ -343,7 +357,7 @@
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-kim-darker via-transparent to-kim-darker"></div>
         
-        <div class="relative z-10 text-center px-4 max-w-5xl glass-card py-16 px-10 rounded-[40px]">
+        <div class="relative z-10 w-full text-center max-w-5xl glass-card py-10 px-6 md:py-16 md:px-10 rounded-[40px]">
             <h2 class="text-5xl md:text-7xl font-sport font-bold text-white mb-6 uppercase tracking-wider">Prêt à <span class="text-transparent text-outline-ghost">Rouler</span></h2>
             <p class="text-gray-300 text-xl font-light max-w-2xl mx-auto">
                 Facile à prendre en main, peu gourmand en carburant, fiable et robuste. Le GHOST V7 est le compagnon idéal pour les citadins pressés et les passionnés.
@@ -352,7 +366,7 @@
     </section>
 
     <!-- ===== SECTION 5: SPECS ===== -->
-    <section id="specs" class="bg-black py-24 relative border-t border-white/5">
+    <section id="specs" class="bg-black py-12 lg:py-24 relative border-t border-white/5">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-white/40 font-bold tracking-[0.3em] uppercase text-sm">Spécifications</span>
@@ -464,22 +478,24 @@
         function changeColor(name, imgSrc) {
             document.getElementById('ghost-main-img').src = imgSrc;
             const labels = {
-                'noir':'Noir Intégral',
-                'bleu':'Bleu Électrique',
-                'carbon':'Finition Carbon',
-                'blanc':'Blanc Pur',
-                'vert':'Vert Sport',
-                'rouge':'Rouge Racing'
+                'noir':'Noir Intégral','bleu':'Bleu Électrique','carbon':'Finition Carbon',
+                'blanc':'Blanc Pur','vert':'Vert Sport','rouge':'Rouge Racing'
             };
-            document.getElementById('color-label').textContent = labels[name] || name;
+            document.querySelectorAll('.color-label-text').forEach(el => el.textContent = labels[name] || name);
             
-            // Handle active border state
+            // Update all buttons globally
             document.querySelectorAll('.ghost-color-btn').forEach(b => {
+                // Remove hardcoded classes that make the "noir" button look selected by default
                 b.classList.remove('border-white', 'ring-white', 'ring-2', 'ring-offset-4');
-                b.classList.add('border-transparent');
+                b.style.borderColor = 'transparent';
+                b.style.boxShadow = 'none';
             });
-            event.currentTarget.classList.remove('border-transparent');
-            event.currentTarget.classList.add('border-white', 'ring-white', 'ring-2', 'ring-offset-4');
+            
+            document.querySelectorAll('.ghost-color-btn[data-color="'+name+'"]').forEach(b => {
+                b.style.borderColor = 'white';
+                const offsetWidth = window.innerWidth < 1024 ? '3px' : '4px';
+                b.style.boxShadow = `0 0 0 2px #1a1a24, 0 0 0 ${offsetWidth} #fff`;
+            });
         }
     </script>
     <script src="../assets/js/main.js"></script>
