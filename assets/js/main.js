@@ -96,6 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if(mobileMenuBtn && closeMobileMenuBtn && mobileMenu) {
         const toggleMobileMenu = () => {
             mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+            
+            const header = document.getElementById('navbar');
+            if (header) {
+                if (mobileMenu.classList.contains('translate-x-full')) {
+                    header.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    header.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
         };
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
         closeMobileMenuBtn.addEventListener('click', toggleMobileMenu);
@@ -137,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="flex flex-wrap gap-6 hero-elem">
                             <div class="magnetic-wrap">
-                                <a href="${data.buttonLink}" class="magnetic-btn px-10 py-5 bg-kim-red text-white font-bold uppercase tracking-widest text-sm">
-                                    <span class="relative z-10 flex items-center gap-3">${data.buttonText} <i class="fa-solid fa-arrow-right"></i></span>
+                                <a href="${data.buttonLink}" class="magnetic-btn px-5 py-3 md:px-10 md:py-5 bg-kim-red text-white font-bold uppercase tracking-widest text-[10px] md:text-sm">
+                                    <span class="relative z-10 flex items-center gap-2 md:gap-3 whitespace-nowrap">${data.buttonText} <i class="fa-solid fa-arrow-right"></i></span>
                                 </a>
                             </div>
                         </div>

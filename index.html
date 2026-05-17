@@ -63,8 +63,8 @@
         <div class="container mx-auto px-4 lg:px-8 relative">
             <div class="flex items-center justify-between h-24">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center shrink-0 z-50 relative group-hover:scale-105 transition-transform duration-300">
-                    <img src="media/logo.png" alt="KIM Motors" class="h-16 md:h-20 w-auto object-contain drop-shadow-xl" id="main-logo">
+                <a href="index.html" class="flex items-center shrink-0 z-50 relative group-hover:scale-105 transition-transform duration-300 mt-2 md:mt-4 -ml-4 md:ml-0">
+                    <img src="media/logo.png" alt="KIM Motors" class="h-24 md:h-32 w-auto object-contain object-left drop-shadow-xl" id="main-logo">
                 </a>
 
                 <!-- Desktop Navigation (Centrée) -->
@@ -163,8 +163,13 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 lg:hidden flex flex-col overflow-y-auto pb-10">
-        <a href="index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red">ACCUEIL</a>
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-8 px-6 lg:hidden flex flex-col overflow-y-auto pb-10">
+        <!-- Logo inside mobile menu (scrolls away) -->
+        <div class="mb-12 mt-2">
+            <img src="media/logo.png" alt="KIM Motors" class="h-24 w-auto object-contain">
+        </div>
+        
+        <a href="index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 pb-6 text-white hover:text-kim-red transition-colors">ACCUEIL</a>
         <div class="py-6 border-b border-gray-800">
             <span class="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6 block uppercase">Nos Modèles</span>
             <div class="grid grid-cols-1 gap-4">
@@ -177,17 +182,20 @@
                 <a href="modeles/blaster.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLASTER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
             </div>
         </div>
-        <a href="a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">À PROPOS</a>
-        <a href="atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">L'ATELIER</a>
-        <a href="contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red">CONTACT</a>
-        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-white">
+        <a href="a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">À PROPOS</a>
+        <a href="atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">L'ATELIER</a>
+        <a href="devis.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red hover:text-white transition-colors">DEVIS EN LIGNE</a>
+        <a href="contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red transition-colors">CONTACT</a>
+        
+        <!-- Fixed X Button -->
+        <button id="close-mobile-menu" class="fixed top-8 right-6 p-2 text-white z-[110]">
             <i class="fa-solid fa-xmark text-4xl"></i>
         </button>
     </div>
 
     <main class="min-h-screen">
         <!-- Hero Carousel Section -->
-        <section id="accueil" class="relative h-screen overflow-hidden bg-kim-darker">
+        <section id="accueil" class="relative h-[85vh] lg:h-screen overflow-hidden bg-kim-darker">
             <div id="hero-carousel" class="absolute inset-0">
                 <!-- Slides injected by main.js -->
             </div>
@@ -202,7 +210,7 @@
             
             <!-- Scroll Down Indicator -->
             <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center hero-elem">
-                <span class="text-white/60 text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Découvrir</span>
+                <span class="hidden md:block text-white/60 text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Découvrir</span>
                 <div class="w-[1px] h-20 bg-white/20 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-line"></div>
                 </div>
@@ -210,9 +218,9 @@
         </section>
 
         <!-- Nouvelle Section : L'Essence de KIM Motors -->
-        <section class="py-24 bg-kim-darker relative overflow-hidden">
+        <section class="py-12 lg:py-24 bg-kim-darker relative overflow-hidden">
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-24 bg-gradient-to-b from-kim-red to-transparent"></div>
-            <div class="container mx-auto px-4 lg:px-8 mt-12">
+            <div class="container mx-auto px-4 lg:px-8 mt-6 lg:mt-12">
                 <div class="max-w-4xl mx-auto text-center">
                     <h2 class="text-kim-red text-sm font-bold uppercase tracking-[0.3em] mb-6">NOTRE PHILOSOPHIE</h2>
                     <p class="text-3xl md:text-5xl font-sport font-bold text-white leading-tight mb-8">
@@ -230,9 +238,9 @@
         </section>
 
         <!-- Modèles Preview Section (Grille Asymétrique) -->
-        <section id="modeles" class="py-32 bg-black relative z-10 border-t border-gray-900">
+        <section id="modeles" class="pt-12 pb-0 lg:py-32 bg-black relative z-10 border-t border-gray-900">
             <div class="container mx-auto px-4 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-20">
                     <div>
                         <span class="text-kim-red font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4 block">La Gamme 2026</span>
                         <h2 class="text-6xl md:text-8xl font-sport font-bold text-white leading-[0.9]">NOS VÉHICULES <br>PHARES</h2>
@@ -321,15 +329,15 @@
         </section>
 
         <!-- Interactive Map Section -->
-        <section class="relative w-full h-[70vh] min-h-[600px] bg-kim-darker overflow-hidden border-t border-gray-900">
-            <div class="absolute inset-0 map-container">
+        <section class="flex flex-col lg:block relative w-full lg:h-[70vh] lg:min-h-[600px] bg-kim-darker border-t border-gray-900">
+            <div class="h-[400px] lg:h-auto lg:absolute lg:inset-0 map-container order-2 lg:order-none w-full">
                 <iframe src="https://maps.google.com/maps?q=16%20Rue%20Ali%20Eddouaji%20Montfleury%20%2C%20Tunis%2C%20Tunisia&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
-            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent pointer-events-none"></div>
+            <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent pointer-events-none"></div>
             
-            <div class="container mx-auto px-4 lg:px-8 relative h-full flex items-center">
-                <div class="bg-black/80 backdrop-blur-md border border-gray-800 p-10 md:p-12 max-w-lg shadow-2xl pointer-events-auto">
+            <div class="container mx-auto px-0 lg:px-8 relative h-full flex lg:items-center order-1 lg:order-none">
+                <div class="bg-black lg:bg-black/80 lg:backdrop-blur-md border-b lg:border-t lg:border border-gray-800 p-8 md:p-12 lg:max-w-lg shadow-2xl pointer-events-auto w-full">
                     <span class="text-kim-red font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Venez nous voir</span>
                     <h3 class="text-5xl font-sport font-bold text-white mb-8">NOTRE ATELIER</h3>
                     <div class="space-y-6 text-gray-300 font-light">
@@ -357,28 +365,32 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white pt-24 pb-10 border-t border-gray-900">
+    <footer class="bg-black text-white pt-12 lg:pt-24 pb-10 border-t border-gray-900">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-                <div class="md:col-span-5">
-                    <img src="media/logo.png" alt="KIM Motors" class="h-16 w-auto mb-8 object-contain invert brightness-0">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-16">
+                <div class="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
+                    <img src="media/logo.png" alt="KIM Motors" class="h-24 md:h-16 w-auto mb-8 object-contain md:invert md:brightness-0">
                     <p class="text-gray-400 text-lg font-light leading-relaxed max-w-md mb-6">L'excellence mécanique, le design sans compromis. KIM Motors repousse les limites de l'expérience sur deux roues.</p>
                 </div>
-                <div class="md:col-span-3">
-                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-widest text-white">MENU</h4>
-                    <ul class="space-y-4 font-light tracking-wide">
-                        <li><a href="index.html" class="text-gray-400 hover:text-kim-red transition-colors">Accueil</a></li>
-                        <li><a href="a-propos.html" class="text-gray-400 hover:text-kim-red transition-colors">À Propos</a></li>
-                        <li><a href="atelier.html" class="text-gray-400 hover:text-kim-red transition-colors">L'Atelier</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-kim-red transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="md:col-span-4">
-                    <h4 class="font-sport text-2xl font-bold mb-6 tracking-widest text-white">SUIVEZ-NOUS</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-12 h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                
+                <div class="col-span-1 md:col-span-7 grid grid-cols-2 gap-2 md:gap-12">
+                    <div class="md:col-span-1">
+                        <h4 class="font-sport text-lg md:text-2xl font-bold mb-6 tracking-widest text-white">MENU</h4>
+                        <ul class="space-y-4 font-light tracking-wide text-sm md:text-base">
+                            <li><a href="catalogue.html" class="text-gray-400 hover:text-kim-red transition-colors">Catalogue</a></li>
+                            <li><a href="a-propos.html" class="text-gray-400 hover:text-kim-red transition-colors">À Propos</a></li>
+                            <li><a href="atelier.html" class="text-gray-400 hover:text-kim-red transition-colors">L'Atelier</a></li>
+                            <li><a href="devis.html" class="text-gray-400 hover:text-kim-red transition-colors">Demander un Devis</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-kim-red transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-1">
+                        <h4 class="font-sport text-lg md:text-2xl font-bold mb-6 tracking-widest text-white">SUIVEZ-NOUS</h4>
+                        <div class="flex space-x-3 md:space-x-4">
+                            <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
