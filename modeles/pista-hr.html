@@ -200,11 +200,11 @@
             <source src="../media/pista-hr/pista-hr.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20"></div>
-        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 hidden md:block">
             <span class="inline-block text-kim-red font-bold tracking-[0.4em] uppercase text-sm mb-4">KIM Motors — Sport Urbain</span>
             <h1 class="text-8xl md:text-[10rem] font-sport font-bold text-white leading-none mb-6 tracking-tight">PISTA <span class="text-kim-red">HR</span></h1>
             <p class="text-gray-300 text-xl max-w-xl mb-10 font-light">Le scooter qui redéfinit la mobilité urbaine. Un moteur 110CC vif, un freinage précis, et un design qui s'impose.</p>
-            <div class="flex flex-wrap gap-4">
+            <div class="hidden md:flex flex-wrap gap-4">
                 <a href="../devis.html" class="px-10 py-4 bg-kim-red text-white font-bold uppercase tracking-widest text-sm hover:bg-red-800 transition-colors">Demander un Devis</a>
                 <a href="#fiche" class="px-10 py-4 border border-white/40 text-white font-bold uppercase tracking-widest text-sm hover:border-kim-red hover:text-kim-red transition-colors">Fiche Technique <i class="fa-solid fa-arrow-down ml-2"></i></a>
             </div>
@@ -212,13 +212,24 @@
         <!-- Key stats bar -->
         <div class="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-md border-t border-white/10">
             <div class="container mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-                <div class="py-5 px-6 text-center"><p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Cylindrée</p><p class="text-white font-sport text-2xl font-bold">110 CC</p></div>
-                <div class="py-5 px-6 text-center"><p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Puissance</p><p class="text-white font-sport text-2xl font-bold">5.8 KW</p></div>
-                <div class="py-5 px-6 text-center"><p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Vitesse Max</p><p class="text-white font-sport text-2xl font-bold">70 KM/H</p></div>
-                <div class="py-5 px-6 text-center"><p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Réservoir</p><p class="text-white font-sport text-2xl font-bold">5.1 L</p></div>
+                <div class="py-3 px-2 md:py-5 md:px-6 text-center"><p class="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mb-1">Cylindrée</p><p class="text-white font-sport text-xl md:text-2xl font-bold">110 CC</p></div>
+                <div class="py-3 px-2 md:py-5 md:px-6 text-center"><p class="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mb-1">Puissance</p><p class="text-white font-sport text-xl md:text-2xl font-bold">5.8 KW</p></div>
+                <div class="py-3 px-2 md:py-5 md:px-6 text-center"><p class="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mb-1">Vitesse Max</p><p class="text-white font-sport text-xl md:text-2xl font-bold">70 KM/H</p></div>
+                <div class="py-3 px-2 md:py-5 md:px-6 text-center"><p class="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mb-1">Réservoir</p><p class="text-white font-sport text-xl md:text-2xl font-bold">5.1 L</p></div>
             </div>
         </div>
     </section>
+
+    <!-- ===== MOBILE TEXT + BUTTONS (Under Video) ===== -->
+    <div class="md:hidden py-10 px-4 bg-kim-darker border-b border-gray-900 text-center flex flex-col items-center">
+        <span class="inline-block text-kim-red font-bold tracking-[0.4em] uppercase text-[10px] mb-3">KIM Motors — Sport Urbain</span>
+        <h1 class="text-7xl font-sport font-bold text-white leading-none mb-4 tracking-tight">PISTA <span class="text-kim-red">HR</span></h1>
+        <p class="text-gray-400 text-xs mb-8 font-light max-w-sm">Le scooter qui redéfinit la mobilité urbaine. Un moteur 110CC vif, un freinage précis, et un design qui s'impose.</p>
+        <div class="flex justify-center gap-2 w-full">
+            <a href="../devis.html" class="flex-1 text-center px-2 py-3 bg-kim-red text-white font-bold uppercase tracking-widest text-[9px] sm:text-[10px] hover:bg-red-800 transition-colors whitespace-nowrap">Demander un Devis</a>
+            <a href="#fiche" class="flex-1 text-center px-2 py-3 border border-white/40 text-white font-bold uppercase tracking-widest text-[9px] sm:text-[10px] hover:border-kim-red hover:text-kim-red transition-colors whitespace-nowrap">Fiche Technique</a>
+        </div>
+    </div>
 
     <!-- ===== SECTION 1: CLOSE-UP WEBP + INTRO ===== -->
     <section class="relative overflow-hidden bg-black">
@@ -261,7 +272,7 @@
                 <h2 class="text-5xl font-sport font-bold text-white mt-2">SOUS TOUS LES <span class="text-kim-red">ANGLES</span></h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                <div class="overflow-hidden rounded-xl aspect-square"><img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700 no-protect-img" alt="Pista HR affiche"></div>
+                <div class="overflow-hidden rounded-xl aspect-square hidden md:block"><img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700 no-protect-img" alt="Pista HR affiche"></div>
                 <div class="overflow-hidden rounded-xl aspect-square col-span-2 row-span-2"><img src="../media/pista-hr/kim3_HR-ROUGE.webp" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 no-protect-img" alt="Pista HR Rouge"></div>
                 <div class="overflow-hidden rounded-xl aspect-square"><img src="../media/pista-hr/kim1_tun.webp" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700 no-protect-img" alt="Pista HR Tunisie"></div>
                 <div class="overflow-hidden rounded-xl aspect-square"><img src="../media/pista-hr/kim1_1-copie.webp" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700 no-protect-img" alt="Pista HR vue 1"></div>
@@ -275,9 +286,9 @@
     </section>
 
     <!-- ===== SECTION 4: AFFICHE PRINCIPALE + PERFORMANCE ===== -->
-    <section class="bg-black py-24">
-        <div class="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-10">
+    <section class="bg-black pt-4 pb-12 lg:py-24 overflow-hidden">
+        <div class="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-8 lg:gap-16 items-center">
+            <div class="space-y-4 md:space-y-6 lg:space-y-10">
                 <span class="text-kim-red font-bold tracking-[0.3em] uppercase text-sm">Motorisation</span>
                 <h2 class="text-5xl font-sport font-bold text-white leading-tight">UN MOTEUR<br>SANS COMPROMIS</h2>
                 <p class="text-gray-400 leading-relaxed text-lg">Le cœur du PISTA HR est un monocylindre 4 temps refroidi à air, doté d'une transmission CVT automatique ultra fluide. Sa cylindrée de 110CC associée à un allumage CDI garantit un démarrage réactif et une conduite sans faille, en ville comme sur route.</p>
@@ -328,49 +339,49 @@
                 <h2 class="text-5xl font-sport font-bold text-white mt-2">FICHE <span class="text-kim-red">TECHNIQUE</span></h2>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <div class="overflow-hidden rounded-3xl border border-gray-800">
-                    <table class="w-full text-sm">
-                        <thead><tr class="bg-kim-red"><th class="text-left py-4 px-6 text-white font-bold uppercase tracking-widest text-xs">Caractéristique</th><th class="text-left py-4 px-6 text-white font-bold uppercase tracking-widest text-xs">Spécification</th></tr></thead>
+                <div class="overflow-x-auto rounded-3xl border border-gray-800">
+                    <table class="w-full text-[10px] md:text-sm">
+                        <thead><tr class="bg-kim-red"><th class="text-left py-3 px-3 md:py-4 md:px-6 text-white font-bold uppercase tracking-widest text-xs">Caractéristique</th><th class="text-left py-3 px-3 md:py-4 md:px-6 text-white font-bold uppercase tracking-widest text-xs">Spécification</th></tr></thead>
                         <tbody class="divide-y divide-gray-900">
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Marque</td><td class="py-3 px-6 text-white font-medium">PISTA</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Moteur</td><td class="py-3 px-6 text-white font-medium">Monocylindre, 4 Temps, Refroidissement Air</td></tr>
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Cylindrée</td><td class="py-3 px-6 text-white font-medium">110 CC</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Alimentation</td><td class="py-3 px-6 text-white font-medium">Carburateur</td></tr>
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Puissance Max</td><td class="py-3 px-6 text-white font-medium">5.8 Kw / 8000 r/min</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Couple Max</td><td class="py-3 px-6 text-white font-medium">7.8 N.m / 5500 r/min</td></tr>
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Allumage</td><td class="py-3 px-6 text-white font-medium">CDI</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Boite à vitesse</td><td class="py-3 px-6 text-white font-medium">Automatique CVT</td></tr>
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Embrayage</td><td class="py-3 px-6 text-white font-medium">À sec</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Démarrage</td><td class="py-3 px-6 text-white font-medium">Électrique / Cliquet</td></tr>
-                            <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Batterie</td><td class="py-3 px-6 text-white font-medium">12V 7AH</td></tr>
-                            <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Réservoir</td><td class="py-3 px-6 text-white font-medium">5.1 Litres</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Marque</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">PISTA</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Moteur</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Monocylindre, 4 Temps, Refroidissement Air</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Cylindrée</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">110 CC</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Alimentation</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Carburateur</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Puissance Max</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">5.8 Kw / 8000 r/min</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Couple Max</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">7.8 N.m / 5500 r/min</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Allumage</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">CDI</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Boite à vitesse</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Automatique CVT</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Embrayage</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">À sec</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Démarrage</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Électrique / Cliquet</td></tr>
+                            <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Batterie</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">12V 7AH</td></tr>
+                            <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Réservoir</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">5.1 Litres</td></tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="space-y-6">
-                    <div class="overflow-hidden rounded-3xl border border-gray-800">
-                        <table class="w-full text-sm">
-                            <thead><tr class="bg-gray-900"><th class="text-left py-4 px-6 text-white font-bold uppercase tracking-widest text-xs">Dimensions &amp; Châssis</th><th class="py-4 px-6"></th></tr></thead>
+                    <div class="overflow-x-auto rounded-3xl border border-gray-800">
+                        <table class="w-full text-[10px] md:text-sm">
+                            <thead><tr class="bg-gray-900"><th class="text-left py-3 px-3 md:py-4 md:px-6 text-white font-bold uppercase tracking-widest text-xs">Dimensions &amp; Châssis</th><th class="py-3 px-3 md:py-4 md:px-6"></th></tr></thead>
                             <tbody class="divide-y divide-gray-900">
-                                <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Dimensions (L×W×H)</td><td class="py-3 px-6 text-white font-medium">1800 × 710 × 1020 mm</td></tr>
-                                <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Empattement</td><td class="py-3 px-6 text-white font-medium">1200 mm</td></tr>
-                                <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Garde au sol</td><td class="py-3 px-6 text-white font-medium">115 mm</td></tr>
-                                <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Hauteur de selle</td><td class="py-3 px-6 text-white font-medium">740 mm</td></tr>
-                                <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Roues (AV/AR)</td><td class="py-3 px-6 text-white font-medium">100/90-10 / 100/90-10</td></tr>
-                                <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Suspension AV</td><td class="py-3 px-6 text-white font-medium">Fourche télescopique</td></tr>
-                                <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Suspension AR</td><td class="py-3 px-6 text-white font-medium">Bras oscillant</td></tr>
-                                <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Freinage (AV/AR)</td><td class="py-3 px-6 text-white font-medium">Disque / Tambour</td></tr>
-                                <tr class="bg-black"><td class="py-3 px-6 text-gray-400">Vitesse Max</td><td class="py-3 px-6 text-white font-medium">70 km/h</td></tr>
-                                <tr class="bg-kim-gray"><td class="py-3 px-6 text-gray-400">Freinage &lt;7m</td><td class="py-3 px-6 text-white font-medium">à 30 km/h</td></tr>
+                                <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Dimensions (L×W×H)</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">1800 × 710 × 1020 mm</td></tr>
+                                <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Empattement</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">1200 mm</td></tr>
+                                <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Garde au sol</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">115 mm</td></tr>
+                                <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Hauteur de selle</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">740 mm</td></tr>
+                                <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Roues (AV/AR)</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">100/90-10 / 100/90-10</td></tr>
+                                <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Suspension AV</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Fourche télescopique</td></tr>
+                                <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Suspension AR</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Bras oscillant</td></tr>
+                                <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Freinage (AV/AR)</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">Disque / Tambour</td></tr>
+                                <tr class="bg-black"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Vitesse Max</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">70 km/h</td></tr>
+                                <tr class="bg-kim-gray"><td class="py-2 px-3 md:py-3 md:px-6 text-gray-400">Freinage &lt;7m</td><td class="py-2 px-3 md:py-3 md:px-6 text-white font-medium">à 30 km/h</td></tr>
                             </tbody>
                         </table>
                     </div>
                     <!-- Download Button -->
-                    <a href="../media/pista-hr/fiche-technique.webp" download="Fiche-Technique-Pista-HR.webp" class="flex items-center justify-center gap-4 w-full py-5 bg-kim-red text-white font-bold uppercase tracking-widest text-sm rounded-2xl hover:bg-red-800 transition-colors group">
+                    <a href="../media/pista-hr/fiche-technique.webp" download="Fiche-Technique-Pista-HR.webp" class="flex items-center justify-center gap-2 md:gap-4 w-full py-3 md:py-5 bg-kim-red text-white font-bold uppercase tracking-widest text-[9px] md:text-sm rounded-2xl whitespace-nowrap hover:bg-red-800 transition-colors group">
                         <i class="fa-solid fa-download text-lg group-hover:translate-y-1 transition-transform"></i>
                         Télécharger la Fiche Technique
                     </a>
-                    <a href="../devis.html" class="flex items-center justify-center gap-4 w-full py-5 border border-kim-red text-kim-red font-bold uppercase tracking-widest text-sm rounded-2xl hover:bg-kim-red hover:text-white transition-colors">
+                    <a href="../devis.html" class="flex items-center justify-center gap-2 md:gap-4 w-full py-3 md:py-5 border border-kim-red text-kim-red font-bold uppercase tracking-widest text-[9px] md:text-sm rounded-2xl whitespace-nowrap hover:bg-kim-red hover:text-white transition-colors">
                         <i class="fa-solid fa-file-lines text-lg"></i>
                         Demander un Devis
                     </a>
