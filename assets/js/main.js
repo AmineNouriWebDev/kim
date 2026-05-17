@@ -126,25 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hero-slide-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="${data.imageMobile || data.imageDesktop}">
-                        <img src="${data.imageDesktop}" alt="${data.title}" class="w-full h-full object-cover opacity-60">
+                        <img src="${data.imageDesktop}" alt="${data.title}" class="w-full h-full object-cover opacity-90">
                     </picture>
-                    <div class="absolute inset-0 bg-gradient-to-t from-kim-darker via-transparent to-kim-darker/50"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-kim-darker/80 via-transparent to-transparent"></div>
                 </div>
-                <div class="container mx-auto px-4 lg:px-8 relative z-20 h-full flex items-center pt-20">
-                    <div class="max-w-4xl">
-                        <div class="overflow-hidden mb-4">
-                            <span class="block text-kim-red font-bold tracking-[0.3em] uppercase text-sm md:text-lg hero-elem">${data.subtitle}</span>
-                        </div>
-                        <div class="overflow-hidden mb-6">
-                            <h1 class="text-7xl md:text-9xl font-sport font-bold text-white leading-[0.85] tracking-wide hero-elem">
-                                ${data.title.split(' ').map((word, i) => i === data.title.split(' ').length - 1 ? `<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">${word}</span>` : word).join(' ')}
-                            </h1>
-                        </div>
-                        <div class="overflow-hidden mb-10">
-                            <p class="text-gray-300 text-xl md:text-2xl max-w-2xl font-light hero-elem">
-                                ${data.description}
-                            </p>
-                        </div>
+                <div class="container mx-auto px-4 lg:px-8 relative z-20 h-full flex items-end pb-20 md:pb-24 lg:pb-32">
+                    <div class="max-w-4xl w-full">
                         <div class="flex flex-wrap gap-6 hero-elem">
                             <div class="magnetic-wrap">
                                 <a href="${data.buttonLink}" class="magnetic-btn px-5 py-3 md:px-10 md:py-5 bg-kim-red text-white font-bold uppercase tracking-widest text-[10px] md:text-sm">
