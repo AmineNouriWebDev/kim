@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-2xl');
                 navBg.classList.add('bg-kim-darker/90', 'backdrop-blur-xl', 'border-b', 'border-gray-800');
-                navBg.classList.remove('bg-transparent');
+                navBg.classList.remove('bg-gradient-to-b', 'from-black/70', 'to-transparent');
             } else {
                 navbar.classList.remove('shadow-2xl');
                 navBg.classList.remove('bg-kim-darker/90', 'backdrop-blur-xl', 'border-b', 'border-gray-800');
-                navBg.classList.add('bg-transparent');
+                navBg.classList.add('bg-gradient-to-b', 'from-black/70', 'to-transparent');
             }
         });
     }
