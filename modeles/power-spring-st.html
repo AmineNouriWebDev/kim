@@ -51,23 +51,19 @@
     </div>
 
     <!-- Navbar (Unified) -->
-    <!-- NOUVEAU MENU NAV (Plus épuré et moderne) -->
     <header class="absolute w-full z-50 top-0 transition-all duration-300 group" id="navbar">
-        <!-- Fond qui devient opaque au scroll -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent transition-all duration-300" id="nav-bg"></div>
-        
+        <div class="absolute inset-0 bg-transparent transition-all duration-300" id="nav-bg"></div>
+
         <div class="container mx-auto px-4 lg:px-8 relative">
             <div class="flex items-center justify-between h-24">
                 <!-- Logo -->
-                <a href="../index.html" class="flex items-center shrink-0 z-50 relative group-hover:scale-105 transition-transform duration-300 mt-2 md:mt-4 -ml-10 md:ml-0">
-                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 md:h-20 w-auto object-contain drop-shadow-xl" id="main-logo">
+                <a href="../index.html" class="flex items-center shrink-0 z-50 relative transition-transform duration-300 hover:scale-105">
+                    <img src="../media/logo.png" alt="KIM Motors" class="h-16 md:h-20 w-auto object-contain drop-shadow-xl">
                 </a>
 
-                <!-- Desktop Navigation (Centrée) -->
+                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2 z-50">
-                    <a href="../index.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[2px] after:bg-kim-red">Accueil</a>
-                    
-                    <!-- Mega Menu Trigger -->
+                    <a href="../index.html" class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-kim-red hover:after:w-full after:transition-all after:duration-300">Accueil</a>
                     <div class="h-24 flex items-center cursor-pointer" id="nav-modeles">
                         <a class="text-sm font-bold uppercase tracking-widest text-white hover:text-kim-red transition-colors flex items-center gap-2 group/menu">
                             Modèles <i class="fa-solid fa-chevron-down text-[10px] group-hover/menu:rotate-180 transition-transform duration-300"></i>
@@ -80,12 +76,10 @@
 
                 <!-- Right Actions -->
                 <div class="flex items-center space-x-6 z-50">
-                    <a href="../devis.html" class="hidden md:flex relative overflow-hidden group/btn px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-kim-red transition-colors rounded-none">
+                    <a href="../devis.html" class="hidden md:flex relative overflow-hidden group/btn px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-kim-red transition-colors">
                         <div class="absolute inset-0 bg-kim-red transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-out z-0"></div>
                         <span class="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-white">Devis</span>
                     </a>
-                    
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 text-white hover:text-kim-red transition-colors">
                         <div class="w-8 h-[2px] bg-current mb-2"></div>
                         <div class="w-6 h-[2px] bg-current mb-2 ml-auto"></div>
@@ -95,79 +89,62 @@
             </div>
         </div>
 
-        <!-- Mega Menu Dropdown (Repensé) -->
+        <!-- Mega Menu -->
         <div id="mega-menu" class="absolute top-full left-0 w-full bg-kim-darker/98 backdrop-blur-3xl border-t border-b border-gray-800 shadow-2xl overflow-hidden">
             <div class="container mx-auto px-4 py-12">
                 <div class="flex justify-between items-end mb-8 border-b border-gray-800 pb-4">
                     <h3 class="text-3xl font-sport font-bold text-white tracking-widest">SÉLECTIONNEZ VOTRE <span class="text-kim-red">MODÈLE</span></h3>
                     <a href="../catalogue.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">Voir tout le catalogue <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-                    <!-- Pista HR -->
                     <a href="pista-hr.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
                         <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR</h4>
                     </a>
-                    <!-- Pista HR+ -->
                     <a href="pista-hr-plus.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
                         <img src="../media/pista-hr/kim1_hr-affiche-2.1.webp" alt="Pista HR+" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 filter hue-rotate-90">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA HR+</h4>
                     </a>
-                    <!-- Pista VCX -->
                     <a href="pista-vcx.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
-                        <img src="../media/pista-vcx/kim1_Sequence-01.00_00_00_26.Still002.webp" alt="Pista VCX" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <img src="../media/pista-vcx/kim1_PISTA-1.webp" alt="Pista VCX" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">PISTA VCX</h4>
                     </a>
-                    <!-- Ghost V7 -->
                     <a href="ghost-v7.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
-                        <img src="../media/ghost-v7/kim2_gosst-copie.webp" alt="Ghost V7" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <img src="../media/ghost-v7/kim2_AFF.webp" alt="Ghost V7" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">GHOST V7</h4>
                     </a>
-                    <!-- Black Street -->
                     <a href="black-street.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
-                        <img src="../media/black-street/kim3_DSC06111.webp" alt="Black Street" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <img src="../media/black-street/kim1_DSC06092.webp" alt="Black Street" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLACK STREET</h4>
                     </a>
-                    <!-- Power Spring ST -->
                     <a href="power-spring-st.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
-                        <img src="../media/power-spring-st/kim3_AMIR-MOTO-Timeline-1-Resolve.00_00_39_41.Still007-copie.webp" alt="Power Spring ST" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <img src="../media/power-spring-st/kim3_affiche-spring.webp" alt="Power Spring ST" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">SPRING ST</h4>
                     </a>
-                    <!-- Blaster -->
                     <a href="blaster.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4">
-                        <img src="../media/blaster/img1.jpg" alt="Blaster" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <img src="../media/blaster/kim3_affiche-blaster-copie.webp" alt="Blaster" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-white group-hover:text-kim-red transition-colors">BLASTER</h4>
                     </a>
-                    <!-- Power (Bientôt) -->
-                    <div class="group relative aspect-[3/4] overflow-hidden bg-gray-900 flex items-end p-4 opacity-50 cursor-not-allowed">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-gray-500 text-xs font-bold uppercase tracking-widest border border-gray-600 px-3 py-1">Bientôt</span>
-                        </div>
-                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-gray-400">POWER</h4>
-                    </div>
+                    <a href="power.html" class="group relative aspect-[3/4] overflow-hidden bg-black flex items-end p-4 border border-kim-red">
+                        <img src="../media/power/110/rouge-vur-globale.webp" alt="Power" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                        <h4 class="relative z-10 font-sport font-bold text-2xl tracking-wide text-kim-red">POWER</h4>
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-
-
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-8 px-6 lg:hidden flex flex-col overflow-y-auto pb-10">
-        <!-- Logo inside mobile menu (scrolls away) -->
-        <div class="mb-12 mt-2">
-            <img src="../media/logo.png" alt="KIM Motors" class="h-24 w-auto object-contain">
-        </div>
-        
-        <a href="../index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 pb-6 text-white hover:text-kim-red transition-colors">ACCUEIL</a>
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-24 px-8 lg:hidden flex flex-col overflow-y-auto pb-10">
+        <a href="../index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red">ACCUEIL</a>
         <div class="py-6 border-b border-gray-800">
             <span class="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6 block uppercase">Nos Modèles</span>
             <div class="grid grid-cols-1 gap-4">
@@ -178,18 +155,25 @@
                 <a href="black-street.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLACK STREET <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
                 <a href="power-spring-st.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">SPRING ST <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
                 <a href="blaster.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLASTER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+                <a href="power.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">POWER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
             </div>
         </div>
-        <a href="../a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">À PROPOS</a>
-        <a href="../atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">L'ATELIER</a>
-        <a href="../devis.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red hover:text-white transition-colors">DEVIS EN LIGNE</a>
-        <a href="../contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red transition-colors">CONTACT</a>
-        
-        <!-- Fixed X Button -->
-        <button id="close-mobile-menu" class="fixed top-8 right-6 p-2 text-white z-[110]">
+        <a href="../a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">À PROPOS</a>
+        <a href="../atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red">L'ATELIER</a>
+        <a href="../contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red">CONTACT</a>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-4 text-white">
             <i class="fa-solid fa-xmark text-4xl"></i>
         </button>
     </div>
+
+    </div>
+
+    <!-- Navbar (Unified) -->
+    <!-- NOUVEAU MENU NAV (Plus épuré et moderne) -->
+
+
+
+
 <!-- Header -->
 
 
