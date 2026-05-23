@@ -201,7 +201,7 @@ def process_file(path: str):
         print(f"  ⚠️  No change: {os.path.relpath(path, ROOT)}")
 
 # ── main ─────────────────────────────────────────────────────────────────────
-SKIP_FILES = {'index.html', 'index 2.html', 'catalogue.html'}  # already has correct nav
+SKIP_FILES = set()  # Sync all files to propagate the active POWER link
 
 print("\n🔧 KIM Motors — Updating nav + loader on all pages…\n")
 

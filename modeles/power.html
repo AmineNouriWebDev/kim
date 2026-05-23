@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr" class="dark overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +57,7 @@
         }
     </style>
 </head>
-<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
+<body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300 overflow-x-hidden">
     <!-- Loader (Giant Logo) -->
     <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-kim-darker transition-opacity duration-700">
         <div class="relative w-3/4 md:w-1/2 max-w-4xl h-auto">
@@ -186,35 +186,8 @@
 
     </div>
 
-    <!-- Header (Based on Black Street) -->
+    <!-- Navbar (Unified) -->
 
-
-    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-kim-darker/98 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 pt-8 px-6 lg:hidden flex flex-col overflow-y-auto pb-10">
-        <div class="mb-12 mt-2">
-            <img src="../media/logo.png" alt="KIM Motors" class="h-24 w-auto object-contain">
-        </div>
-        <a href="../index.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 pb-6 text-white hover:text-kim-red transition-colors">ACCUEIL</a>
-        <div class="py-6 border-b border-gray-800">
-            <span class="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6 block uppercase">Nos Modèles</span>
-            <div class="grid grid-cols-1 gap-4">
-                <a href="pista-hr.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="pista-hr-plus.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA HR+ <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="pista-vcx.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">PISTA VCX <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="ghost-v7.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">GHOST V7 <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="black-street.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLACK STREET <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="power-spring-st.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">SPRING ST <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="blaster.html" class="font-sport text-3xl font-bold text-white hover:text-kim-red flex justify-between items-center group">BLASTER <i class="fa-solid fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-                <a href="power.html" class="font-sport text-3xl font-bold text-kim-red flex justify-between items-center group">POWER <i class="fa-solid fa-arrow-right text-sm opacity-100 transition-opacity"></i></a>
-            </div>
-        </div>
-        <a href="../a-propos.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">À PROPOS</a>
-        <a href="../atelier.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-white hover:text-kim-red transition-colors">L'ATELIER</a>
-        <a href="../devis.html" class="mobile-link text-4xl font-sport font-bold tracking-widest border-b border-gray-800 py-6 text-kim-red hover:text-white transition-colors">DEVIS EN LIGNE</a>
-        <a href="../contact.html" class="mobile-link text-4xl font-sport font-bold tracking-widest py-6 text-white hover:text-kim-red transition-colors">CONTACT</a>
-        <button id="close-mobile-menu" class="fixed top-8 right-6 p-2 text-white z-[110]">
-            <i class="fa-solid fa-xmark text-4xl"></i>
-        </button>
-    </div>
 
     <!-- ===== SECTION 1: HERO (Duo 110 & 125) ===== -->
     <section class="relative min-h-screen bg-kim-darker flex items-center justify-center pt-24 overflow-hidden">
@@ -242,10 +215,10 @@
                 </div>
             </div>
 
-            <!-- Right Visuals (Portrait Image + Video overlay or 2 Images) -->
-            <div class="w-full lg:w-7/12 relative flex justify-center items-center h-[600px] lg:h-[800px]">
+            <!-- Right Visuals (Portrait Image + Video overlay or 3 Images) -->
+            <div class="w-full lg:w-7/12 relative flex justify-center items-center h-[600px] lg:h-[800px] select-none">
                 <!-- Main Black Power Bike -->
-                <div class="absolute left-0 lg:left-10 w-[70%] lg:w-[60%] h-full z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div onclick="bringToFront(this)" class="bike-card absolute left-0 lg:left-[5%] w-[55%] lg:w-[50%] h-[85%] z-10 transform -rotate-6 hover:rotate-0 transition-all duration-500 cursor-pointer">
                     <img src="../media/power/110/noir-vue-ensemble.webp" alt="Power 125 Noir" class="w-full h-full object-cover object-center rounded-2xl shadow-2xl border border-gray-800">
                     <div class="absolute bottom-4 left-4 bg-black/80 px-4 py-2 backdrop-blur-md rounded border border-gray-700">
                         <span class="text-white font-sport font-bold text-xl tracking-wider">VERSION NOIRE</span>
@@ -253,10 +226,18 @@
                 </div>
 
                 <!-- Secondary Red Power Bike -->
-                <div class="absolute right-0 lg:right-10 w-[60%] lg:w-[50%] h-[80%] z-20 transform translate-y-10 rotate-3 hover:rotate-0 hover:z-30 transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+                <div onclick="bringToFront(this)" class="bike-card absolute left-[20%] lg:left-[25%] w-[55%] lg:w-[50%] h-[85%] z-20 transform translate-y-4 rotate-0 hover:rotate-0 transition-all duration-500 cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.8)]">
                     <img src="../media/power/110/rouge-vur-globale.webp" alt="Power 110 Rouge" class="w-full h-full object-cover object-center rounded-2xl shadow-2xl border border-gray-800">
-                    <div class="absolute bottom-4 right-4 bg-kim-red/90 px-4 py-2 backdrop-blur-md rounded">
+                    <div class="absolute bottom-4 left-4 bg-kim-red/90 px-4 py-2 backdrop-blur-md rounded">
                         <span class="text-white font-sport font-bold text-xl tracking-wider">VERSION ROUGE</span>
+                    </div>
+                </div>
+
+                <!-- Version Bleue -->
+                <div onclick="bringToFront(this)" class="bike-card absolute right-0 lg:right-[5%] w-[55%] lg:w-[50%] h-[85%] z-10 transform rotate-6 hover:rotate-0 transition-all duration-500 cursor-pointer">
+                    <img src="../media/power/110/bleue-vue-ensemble.webp" alt="Power Bleu" class="w-full h-full object-cover object-center rounded-2xl shadow-2xl border border-gray-800">
+                    <div class="absolute bottom-4 left-4 bg-blue-900/90 px-4 py-2 backdrop-blur-md rounded border border-blue-800">
+                        <span class="text-white font-sport font-bold text-xl tracking-wider">VERSION BLEUE</span>
                     </div>
                 </div>
             </div>
@@ -264,7 +245,7 @@
     </section>
 
     <!-- ===== MOBILE BUTTONS ===== -->
-    <div class="md:hidden flex justify-center gap-3 py-6 px-4 bg-black border-b border-gray-900 sticky top-[96px] z-40">
+    <div class="md:hidden flex justify-center gap-3 py-6 px-4 bg-black border-b border-gray-900">
         <a href="../devis.html" class="flex-1 text-center px-2 py-3 bg-kim-red text-white font-bold uppercase tracking-widest text-[10px] hover:bg-red-800 transition-colors">Demander un Devis</a>
         <a href="#specs" class="flex-1 text-center px-2 py-3 border border-white/40 text-white font-bold uppercase tracking-widest text-[10px] hover:border-kim-red hover:text-kim-red transition-colors">Fiche Technique</a>
     </div>
@@ -481,11 +462,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row items-center justify-between text-gray-600 text-xs uppercase tracking-widest">
-                <p>&copy; 2026 KIM Motors. Tous droits réservés.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
-                    <a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a>
-                </div>
+                <p>&copy; 2026 KIM Motors. Tous droits réservés. by <a href="https://maxsolving.com/" target="_blank" class="hover:text-kim-red transition-colors ml-1">maxsolving</a></p>
             </div>
         </div>
     </footer>
@@ -514,6 +491,16 @@
                 
                 valCylindree.textContent = '125 cm³';
             }
+        }
+
+        function bringToFront(clickedCard) {
+            const cards = document.querySelectorAll('.bike-card');
+            cards.forEach(card => {
+                card.style.zIndex = '10';
+                card.classList.remove('scale-105', 'shadow-[0_0_50px_rgba(0,0,0,0.8)]');
+            });
+            clickedCard.style.zIndex = '30';
+            clickedCard.classList.add('scale-105', 'shadow-[0_0_50px_rgba(0,0,0,0.8)]');
         }
     </script>
 </body>
