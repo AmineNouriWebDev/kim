@@ -186,10 +186,8 @@
             <div class="text-center mb-16">
                 <h1 class="text-6xl md:text-8xl font-sport font-bold mb-4 tracking-wide">DEMANDER UN DEVIS</h1>
                 <p class="text-gray-500 text-lg max-w-2xl mx-auto">Configurez votre projet et recevez une offre personnalisée sous 24h.</p>
-            </div>
-
-            <div class="max-w-4xl mx-auto bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
-                <form action="#" method="POST" class="space-y-8">
+                       <div class="max-w-4xl mx-auto bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
+                <form id="devis-form" class="space-y-8">
                     <!-- Sélection du modèle -->
                     <div class="space-y-4">
                         <h3 class="text-2xl font-sport font-bold text-kim-red">1. Choisissez votre Modèle</h3>
@@ -308,10 +306,10 @@
                     <div class="space-y-4 pt-8 border-t border-gray-800">
                         <h3 class="text-2xl font-sport font-bold text-kim-red">2. Vos Coordonnées</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <input type="text" placeholder="Prénom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="text" placeholder="Nom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="email" placeholder="Email" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
-                            <input type="tel" placeholder="Téléphone" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="text" id="prenom" name="prenom" required placeholder="Prénom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="text" id="nom" name="nom" required placeholder="Nom" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="email" id="email" name="email" required placeholder="Email" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
+                            <input type="tel" id="telephone" name="telephone" required placeholder="Téléphone" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
                         </div>
                     </div>
 
@@ -319,6 +317,22 @@
                         Envoyer ma demande de devis
                     </button>
                 </form>
+
+                <!-- Message de succès (masqué par défaut) -->
+                <div id="success-container" class="hidden text-center space-y-6 py-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 text-green-500 mb-2">
+                        <i class="fa-solid fa-circle-check text-5xl"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-sport font-bold text-white uppercase tracking-wider">Demande envoyée avec succès !</h2>
+                    <p class="text-gray-400 text-lg max-w-xl mx-auto">
+                        Merci <span id="success-client-name" class="font-bold text-white"></span>. Notre équipe commerciale étudie votre projet et vous recontactera sous 24h.
+                    </p>
+                    <div class="pt-6">
+                        <a href="catalogue.html" class="inline-flex items-center gap-3 px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold uppercase tracking-widest text-xs transition-colors rounded-xl">
+                            Retourner au catalogue <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -362,5 +376,89 @@
 
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('devis-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Gather selected models and their quantities
+            const selectedModels = [];
+            document.querySelectorAll('input[name="model[]"]:checked').forEach(cb => {
+                const modelValue = cb.value;
+                const qtyInput = document.querySelector(`input[name="qty_${modelValue}"]`);
+                const qty = qtyInput ? parseInt(qtyInput.value, 10) : 1;
+                
+                // Capitalize/Format display name
+                const displayNames = {
+                    'pista-hr': 'PISTA HR',
+                    'pista-hr-plus': 'PISTA HR+',
+                    'pista-vcx': 'PISTA VCX',
+                    'ghost-v7': 'GHOST V7',
+                    'black-street': 'BLACK STREET',
+                    'spring-st': 'SPRING ST',
+                    'blaster': 'BLASTER',
+                    'power-110': 'POWER 110',
+                    'power-125': 'POWER 125'
+                };
+                
+                selectedModels.push({
+                    id: modelValue,
+                    name: displayNames[modelValue] || modelValue,
+                    quantity: qty
+                });
+            });
+            
+            if (selectedModels.length === 0) {
+                alert('Veuillez sélectionner au moins un modèle.');
+                return;
+            }
+            
+            const prenom = document.getElementById('prenom').value.trim();
+            const nom = document.getElementById('nom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telephone = document.getElementById('telephone').value.trim();
+            
+            // Show loading state on button
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Envoi en cours...';
+            
+            const payload = {
+                prenom: prenom,
+                nom: nom,
+                email: email,
+                telephone: telephone,
+                models: selectedModels,
+                submittedAt: new Date().toLocaleString('fr-FR')
+            };
+            
+            try {
+                // n8n Webhook URL
+                const webhookUrl = 'https://n8n.deposark.com/webhook/d8b7a807-1cfb-4eb3-9207-bfdce57406c5';
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    // Hide form and show success message
+                    document.getElementById('devis-form').classList.add('hidden');
+                    document.getElementById('success-container').classList.remove('hidden');
+                    document.getElementById('success-client-name').textContent = prenom + ' ' + nom;
+                } else {
+                    throw new Error('Erreur de réponse du webhook');
+                }
+            } catch (error) {
+                console.error('Error submitting devis form:', error);
+                alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer ou nous contacter par téléphone.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>
