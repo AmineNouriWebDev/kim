@@ -38,6 +38,8 @@
             }
         }
     </script>
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
@@ -195,8 +197,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Formulaire -->
                 <div class="bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
-                    <!-- Pointing to a dummy n8n webhook URL for now -->
-                    <form action="https://your-n8n-webhook-url.com/webhook/contact" method="POST" class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Prénom</label>
@@ -228,6 +229,21 @@
                             Envoyer le message
                         </button>
                     </form>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="success-container" class="hidden h-full flex-col items-center justify-center text-center space-y-6 py-12">
+                        <div class="w-24 h-24 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa-solid fa-check text-5xl"></i>
+                        </div>
+                        <h2 class="text-4xl font-sport font-bold text-white">Message Envoyé !</h2>
+                        <p class="text-gray-400 text-lg">
+                            Merci de nous avoir contactés.<br>
+                            Notre équipe étudie votre demande et vous recontactera dans les plus brefs délais.
+                        </p>
+                        <a href="index.html" class="inline-block mt-8 px-8 py-3 border border-white/20 text-white font-bold uppercase tracking-widest hover:border-kim-red hover:text-kim-red transition-colors">
+                            Retour à l'accueil
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Info & Map -->
@@ -277,7 +293,7 @@
                         <h4 class="font-sport text-lg md:text-2xl font-bold mb-6 tracking-widest text-white">SUIVEZ-NOUS</h4>
                         <div class="flex space-x-3 md:space-x-4">
                             <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/kim202636?igsh=MXhvbXkyamdvdjQzNw==" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
@@ -293,5 +309,73 @@
 
     <!-- JS -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const prenom = this.querySelector('input[name="firstname"]').value.trim();
+            const nom = this.querySelector('input[name="lastname"]').value.trim();
+            const email = this.querySelector('input[name="email"]').value.trim();
+            const sujet = this.querySelector('select[name="subject"]').value;
+            const message = this.querySelector('textarea[name="message"]').value.trim();
+            
+            // Show loading state on button
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Envoi en cours...';
+            
+            const payload = {
+                prenom: prenom,
+                nom: nom,
+                email: email,
+                sujet: sujet,
+                message: message,
+                date: new Date().toLocaleString('fr-FR')
+            };
+            
+            try {
+                const webhookUrl = 'https://n8n.deposark.com/webhook/ba52ba59-e1f6-4b8e-8185-103efe809059';
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    // Hide form and show success message
+                    document.getElementById('contact-form').classList.add('hidden');
+                    document.getElementById('success-container').classList.remove('hidden');
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Erreur de réponse du webhook');
+                }
+            } catch (error) {
+                console.error('Error submitting contact form:', error);
+                Toastify({
+                    text: "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer ou nous contacter par téléphone.",
+                    duration: 6000,
+                    close: true,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "#A11603",
+                        color: "#ffffff",
+                        borderRadius: "10px",
+                        fontFamily: "Inter, sans-serif",
+                        fontWeight: "600",
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)"
+                    }
+                }).showToast();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>

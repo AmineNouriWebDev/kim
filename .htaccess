@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Forcer le HTTPS et supprimer le "www."
+    # Si le domaine commence par www. OU si la connexion n'est pas sécurisée (HTTP)
+    RewriteCond %{HTTP_HOST} ^www\.ki-motors\.tn [NC,OR]
+    RewriteCond %{HTTPS} off
+    # Rediriger vers https://ki-motors.tn de manière permanente (301)
+    RewriteRule ^(.*)$ https://ki-motors.tn/$1 [L,R=301,NE]
+</IfModule>
+
+# 2. Rediriger toutes les erreurs 404 (Page Introuvable) vers la page d'accueil
+ErrorDocument 404 /index.html

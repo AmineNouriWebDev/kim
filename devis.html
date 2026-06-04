@@ -38,6 +38,8 @@
             }
         }
     </script>
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-kim-darker text-gray-100 font-body transition-colors duration-300">
@@ -185,7 +187,7 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="text-center mb-16">
                 <h1 class="text-6xl md:text-8xl font-sport font-bold mb-4 tracking-wide">DEMANDER UN DEVIS</h1>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Configurez votre projet et recevez une offre personnalisée sous 24h.</p>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Sélectionnez vos modèles et recevez une offre personnalisée dans les plus brefs délais.</p>
                        <div class="max-w-4xl mx-auto bg-kim-dark p-10 rounded-3xl shadow-xl border border-gray-800">
                 <form id="devis-form" class="space-y-8">
                     <!-- Sélection du modèle -->
@@ -311,6 +313,9 @@
                             <input type="email" id="email" name="email" required placeholder="Email" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
                             <input type="tel" id="telephone" name="telephone" required placeholder="Téléphone" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red">
                         </div>
+                        <div class="pt-2">
+                            <textarea id="message" name="message" rows="4" placeholder="Votre message ou précisions concernant votre demande (optionnel)" class="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-kim-red resize-none"></textarea>
+                        </div>
                     </div>
 
                     <button type="submit" class="w-full bg-kim-red text-white font-bold uppercase tracking-widest py-5 rounded-xl hover:bg-red-800 transition-colors shadow-lg shadow-kim-red/20">
@@ -325,7 +330,7 @@
                     </div>
                     <h2 class="text-3xl md:text-4xl font-sport font-bold text-white uppercase tracking-wider">Demande envoyée avec succès !</h2>
                     <p class="text-gray-400 text-lg max-w-xl mx-auto">
-                        Merci <span id="success-client-name" class="font-bold text-white"></span>. Notre équipe commerciale étudie votre projet et vous recontactera sous 24h.
+                        Merci <span id="success-client-name" class="font-bold text-white"></span>. Notre équipe commerciale étudie votre demande et vous recontactera dans les plus brefs délais.
                     </p>
                     <div class="pt-6">
                         <a href="catalogue.html" class="inline-flex items-center gap-3 px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold uppercase tracking-widest text-xs transition-colors rounded-xl">
@@ -361,7 +366,7 @@
                         <h4 class="font-sport text-lg md:text-2xl font-bold mb-6 tracking-widest text-white">SUIVEZ-NOUS</h4>
                         <div class="flex space-x-3 md:space-x-4">
                             <a href="https://www.facebook.com/LOTFIKADDECH" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/kim202636?igsh=MXhvbXkyamdvdjQzNw==" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-none border border-gray-800 flex items-center justify-center hover:bg-kim-red hover:border-kim-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
@@ -369,13 +374,9 @@
             </div>
             <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row items-center justify-between text-gray-600 text-xs uppercase tracking-widest">
                 <p>&copy; 2026 KIM Motors. Tous droits réservés. by <a href="https://maxsolving.com/" target="_blank" class="hover:text-kim-red transition-colors ml-1">maxsolving</a></p>
-            </div>
-        </div>
-    </footer>
-
-
-
-    <script src="assets/js/main.js"></script>
+                <script src="assets/js/main.js"></script>
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
         document.getElementById('devis-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -408,7 +409,21 @@
             });
             
             if (selectedModels.length === 0) {
-                alert('Veuillez sélectionner au moins un modèle.');
+                Toastify({
+                    text: "Veuillez sélectionner au moins un modèle.",
+                    duration: 4000,
+                    close: true,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "#A11603",
+                        color: "#ffffff",
+                        borderRadius: "10px",
+                        fontFamily: "Inter, sans-serif",
+                        fontWeight: "600",
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)"
+                    }
+                }).showToast();
                 return;
             }
             
@@ -416,6 +431,7 @@
             const nom = document.getElementById('nom').value.trim();
             const email = document.getElementById('email').value.trim();
             const telephone = document.getElementById('telephone').value.trim();
+            const message = document.getElementById('message').value.trim();
             
             // Show loading state on button
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -428,6 +444,7 @@
                 nom: nom,
                 email: email,
                 telephone: telephone,
+                message: message,
                 models: selectedModels,
                 submittedAt: new Date().toLocaleString('fr-FR')
             };
@@ -449,12 +466,29 @@
                     document.getElementById('devis-form').classList.add('hidden');
                     document.getElementById('success-container').classList.remove('hidden');
                     document.getElementById('success-client-name').textContent = prenom + ' ' + nom;
+                    
+                    // Scroll to top smoothly to display the success message
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                     throw new Error('Erreur de réponse du webhook');
                 }
             } catch (error) {
                 console.error('Error submitting devis form:', error);
-                alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer ou nous contacter par téléphone.');
+                Toastify({
+                    text: "Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer ou nous contacter par téléphone.",
+                    duration: 6000,
+                    close: true,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "#A11603",
+                        color: "#ffffff",
+                        borderRadius: "10px",
+                        fontFamily: "Inter, sans-serif",
+                        fontWeight: "600",
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)"
+                    }
+                }).showToast();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
             }
